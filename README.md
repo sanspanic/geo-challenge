@@ -1,4 +1,4 @@
-# :earth_africa: GEO CHALLENGE :earth_africa:
+# :earth_africa: :scotland: GEO CHALLENGE :world_map: :earth_africa:
 
 Will add docs later.
 
