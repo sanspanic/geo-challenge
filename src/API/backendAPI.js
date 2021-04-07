@@ -5,9 +5,8 @@ class backendAPI {
   static async request(endpoint, data, method = "get") {
     console.log("API call to:", endpoint, "data: ", data, "method: ", method);
 
-    const token =
-      window.localStorage.getItem("token") ||
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNhbmR5IiwiaWF0IjoxNjE3NzAyMjExfQ.O4MIh_4IdGfZrE48GKzzQS0iFY2NTCp8hp9uav6zOuw";
+    const token = window.localStorage.getItem("token"); //||
+    //"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNhbmR5IiwiaWF0IjoxNjE3NzAyMjExfQ.O4MIh_4IdGfZrE48GKzzQS0iFY2NTCp8hp9uav6zOuw";
     const url = `${BASE_URL}/${endpoint}`;
     const headers = { Authorization: `Bearer ${token}` };
 
@@ -23,6 +22,11 @@ class backendAPI {
   static async getHighscores() {
     let res = await this.request("highscores");
     return res.scores;
+  }
+
+  static async login(data) {
+    let res = await this.request("auth/login", data, "post");
+    return res.token;
   }
 }
 
