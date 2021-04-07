@@ -1,3 +1,12 @@
+.leaderboard li:nth-child(2) {
+  color: #fc0f77;
+  font-weight: 800;
+}
+
+.leaderboard li:nth-child(2n) {
+  background-color: rgba(128, 128, 128, 0.151);
+}
+
 .bg-gradient-pale {
   background: linear-gradient(135deg, #ffd1cd 0%, #d5fffa 100%);
 }

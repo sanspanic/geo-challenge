@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Welcome = () => {
   return (
-    <div className="flex-grow flex place-items-center place-content-center bg-gradient-pale bg-earth">
+    <div className="flex-grow flex place-items-center place-content-center bg-earth">
       <div className="bg-white bg-opacity-50 rounded-xl shadow-xl p-20 flex flex-col justify-content-center align-items-center">
         <h1 className="font-black text-center text-4xl uppercase">Welcome</h1>
         <p className="py-5">
