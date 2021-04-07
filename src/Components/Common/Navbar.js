@@ -11,7 +11,7 @@ const Navbar = () => {
   const { user } = useContext(AuthContext);
 
   return (
-    <div className="bg-black border-b navbar px-4 py-5 sm:max-w-xl md:max-w-full  md:px-24 lg:px-8">
+    <div className="bg-black border-b navbar px-4 py-5 sm:max-w-full  md:px-24 lg:px-8">
       <div className="relative flex items-center justify-between">
         <Link
           to="/"

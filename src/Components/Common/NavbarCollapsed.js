@@ -1,36 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import Planet from "../../Assets/planet.png";
+import AuthContext from "../../Context/AuthContext";
+import Button from "../Common/Button";
+import LogoutField from "./LogoutField";
 
 const NavbarCollapsed = ({ setIsMenuOpen }) => {
+  const { user } = useContext(AuthContext);
   return (
     <div className="absolute top-0 left-0 w-full">
-      <div className="p-5 bg-white border rounded shadow-sm">
+      <div className="p-5 bg-black  rounded shadow-sm">
         <div className="flex items-center justify-between mb-4">
           <div>
-            <a
+            <Link
               href="/"
-              aria-label="Company"
-              title="Company"
+              aria-label="Geo Challenge"
+              title="Geo Challenge"
               className="inline-flex items-center"
             >
-              <svg
-                className="w-8 text-deep-purple-accent-400"
-                viewBox="0 0 24 24"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeMiterlimit="10"
-                stroke="currentColor"
-                fill="none"
-              >
-                <rect x="3" y="1" width="7" height="12" />
-                <rect x="3" y="17" width="7" height="6" />
-                <rect x="14" y="1" width="7" height="6" />
-                <rect x="14" y="11" width="7" height="12" />
-              </svg>
-              <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                Company
+              <img width={30} src={Planet}></img>
+              <span className="ml-5 text-xl font-bold tracking-wide text-gray-800 uppercase text-gradient-purple">
+                Geo Challenge
               </span>
-            </a>
+            </Link>
           </div>
           <div>
             <button
@@ -50,55 +42,49 @@ const NavbarCollapsed = ({ setIsMenuOpen }) => {
         </div>
         <nav>
           <ul className="space-y-4">
+            {user.username ? (
+              <>
+                <li>
+                  <a
+                    href="/game"
+                    aria-label="Product pricing"
+                    title="Product pricing"
+                    className="font-medium tracking-wide text-earthblue-400 transition-colors duration-200 hover:text-earthgreen-400"
+                  >
+                    Game
+                  </a>
+                </li>
+                <li>
+                  <LogoutField />
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <a
+                    href="/register"
+                    aria-label="Product pricing"
+                    title="Product pricing"
+                    className="font-medium tracking-wide text-earthblue-400 transition-colors duration-200 hover:text-earthgreen-400"
+                  >
+                    Register
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/login"
+                    aria-label="About us"
+                    title="About us"
+                    className="font-medium tracking-wide text-earthblue-400 transition-colors duration-200 hover:text-earthgreen-400"
+                  >
+                    Login
+                  </a>
+                </li>
+              </>
+            )}
+
             <li>
-              <a
-                href="/"
-                aria-label="Our product"
-                title="Our product"
-                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-              >
-                Product
-              </a>
-            </li>
-            <li>
-              <a
-                href="/"
-                aria-label="Our product"
-                title="Our product"
-                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-              >
-                Features
-              </a>
-            </li>
-            <li>
-              <a
-                href="/"
-                aria-label="Product pricing"
-                title="Product pricing"
-                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-              >
-                Pricing
-              </a>
-            </li>
-            <li>
-              <a
-                href="/"
-                aria-label="About us"
-                title="About us"
-                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-              >
-                About us
-              </a>
-            </li>
-            <li>
-              <a
-                href="/"
-                className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                aria-label="Sign up"
-                title="Sign up"
-              >
-                Sign up
-              </a>
+              <Button gradient="purple" text="leaderboard" />
             </li>
           </ul>
         </nav>
