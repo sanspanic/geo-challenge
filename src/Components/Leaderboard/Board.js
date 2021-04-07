@@ -42,7 +42,7 @@ const Board = () => {
               <span>Username</span>
               <span>Score</span>
             </li>
-            {isLoading && <RotatingGlobe />}
+            {isLoading && <RotatingGlobe size={60} />}
             {error.is && (
               <ErrorDisplay message={error.message} status={error.status} />
             )}

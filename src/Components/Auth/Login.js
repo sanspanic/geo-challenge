@@ -43,10 +43,10 @@ const Login = () => {
   return (
     <div className="flex-grow bg-earth flex items-center justify-center">
       <form
-        className="bg-white bg-opacity-50 rounded shadow-xl p-7 lg:w-4/12"
+        className="bg-white bg-opacity-50 rounded shadow-xl p-20 md:p-7 lg:w-4/12"
         onSubmit={handleSubmit}
       >
-        <h3 className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl">
+        <h3 className="mb-4 text-xl font-black sm:text-center sm:mb-6 sm:text-2xl">
           Login to Access All Levels
         </h3>
         <div className="mb-1 sm:mb-2">

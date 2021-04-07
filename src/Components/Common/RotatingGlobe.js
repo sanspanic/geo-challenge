@@ -1,11 +1,12 @@
 import React from "react";
 import { GlobeHemisphereWest } from "phosphor-react";
 
-const RotatingGlobe = () => {
+const RotatingGlobe = ({ size }) => {
+  const className = size === 60 ? "mt-10 mx-auto" : "inline";
   return (
     <GlobeHemisphereWest
-      className="mx-auto mt-10"
-      size={60}
+      className={className}
+      size={size}
       color="darkorchid"
       weight="duotone"
     >

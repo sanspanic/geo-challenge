@@ -1,5 +1,6 @@
 import React from "react";
 import { SmileyXEyes } from "phosphor-react";
+import { Link } from "react-router-dom";
 
 const ErrorDisplay = ({ message, status }) => {
   return (
@@ -9,6 +10,15 @@ const ErrorDisplay = ({ message, status }) => {
         {status}: {message}
       </h5>
       <SmileyXEyes size={48} className="text-cerise-500" />
+      {status === 401 ? (
+        <p className="my-2 text-sm text-gray-700">
+          You must be{" "}
+          <Link className="italic underline text-black" to="login">
+            logged in
+          </Link>{" "}
+          to view this content.
+        </p>
+      ) : null}
     </div>
   );
 };
