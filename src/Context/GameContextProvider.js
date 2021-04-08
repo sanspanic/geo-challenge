@@ -5,7 +5,7 @@ import axios from "axios";
 import geoApi from "../API/geoAPI";
 
 const GameContextProvider = ({ children }) => {
-  const [level, setLevel] = useState({ num: 1, title: "Guess The Flag" });
+  const [level, setLevel] = useState(1);
   const [score, setScore] = useState(0);
   const [countries, setCountries] = useState([]);
   const [hasLoaded, setHasLoaded] = useState(false);

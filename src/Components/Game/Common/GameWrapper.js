@@ -5,6 +5,10 @@ import EndGame from "./EndGame";
 
 const GameWrapper = () => {
   const { level, status, setStatus } = useContext(GameContext);
+  const LEVEL_TITLES = {
+    1: "Guess the Flag",
+    2: "Guess the Capital",
+  };
 
   return (
     <div className="bg-earth flex-grow flex place-items-center place-content-center">
@@ -13,7 +17,7 @@ const GameWrapper = () => {
         {!(status.isActive || status.isWon || status.isLost) && (
           <>
             <h1 className="text-center font-black text-4xl col-start-2 col-span-6 mb-10">
-              Level {level.num} - {level.title}
+              Level {level} - {LEVEL_TITLES[level]}
             </h1>
             <button
               onClick={() => setStatus({ ...status, isActive: true })}
@@ -23,7 +27,7 @@ const GameWrapper = () => {
             </button>
           </>
         )}
-        {status.isActive && <>{level.num === 1 && <FlagLevel />}</>}
+        {status.isActive && <>{level === 1 && <FlagLevel />}</>}
       </div>
     </div>
   );

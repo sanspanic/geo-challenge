@@ -6,19 +6,28 @@ import {
   isCorrect,
   gameWon,
   gameLost,
+  nextLevel,
 } from "../Common/helpers";
 import Timer from "../Common/Timer";
 
 const FlagLevel = () => {
-  const { countries, hasLoaded, setScore, status, setStatus } = useContext(
-    GameContext
-  );
+  const {
+    countries,
+    hasLoaded,
+    setScore,
+    status,
+    setStatus,
+    setLevel,
+    level,
+  } = useContext(GameContext);
+
   const [selection, setSelection] = useState([
     { name: "", flag: "", capital: "" },
     { name: "", flag: "", capital: "" },
     { name: "", flag: "", capital: "" },
     { name: "", flag: "", capital: "" },
   ]);
+
   const [winner, setWinner] = useState({ name: "", flag: "", capital: "" });
   //each level will have 20 turns
   const [turn, setTurn] = useState(1);
@@ -28,6 +37,12 @@ const FlagLevel = () => {
     if (gameWon(turn)) {
       console.log("YA WON");
       setStatus({ ...status, isWon: true, isActive: false });
+    }
+
+    if (nextLevel(turn)) {
+      console.log("initiating next level");
+      setLevel((l) => l + 1);
+      setStatus({ ...status, isActive: false });
     }
 
     const indexArr = makeUniqueSelection();
@@ -48,17 +63,11 @@ const FlagLevel = () => {
     }
   }, [mistakes]);
 
-  //1. get 4 random numbers between 0 and 249 - make sure these are unique
-  //2. save selected four countries to state
-  //3. pick random winner and save to state
-  //4. render 4 flags
-
   const handleClick = (e) => {
     if (isCorrect(e.target.src, winner.flag)) {
       setScore((s) => s + 100);
     } else {
       setMistakes([...mistakes, "mistake"]);
-      console.log(mistakes);
     }
     setTurn((turn) => turn + 1);
   };

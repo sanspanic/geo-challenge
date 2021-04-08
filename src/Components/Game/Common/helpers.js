@@ -40,3 +40,7 @@ export const gameLost = (mistakes) => {
 export const gameWon = (turn) => {
   return turn === 20;
 };
+
+export const nextLevel = (turn) => {
+  return turn % 20 === 0;
+};

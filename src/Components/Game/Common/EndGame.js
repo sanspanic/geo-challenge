@@ -3,7 +3,7 @@ import GameContext from "../../../Context/GameContext";
 import { Link } from "react-router-dom";
 
 const EndGame = () => {
-  const { setStatus, status, score } = useContext(GameContext);
+  const { setStatus, status, score, setScore } = useContext(GameContext);
   const [rank, setRank] = useState("");
 
   useEffect(() => {
@@ -14,6 +14,7 @@ const EndGame = () => {
 
   const restart = () => {
     setStatus({ isActive: false, isWon: false, isLost: false });
+    setScore(0);
   };
 
   return (
@@ -33,7 +34,7 @@ const EndGame = () => {
         </li>
         <li className="flex justify-between px-3 py-1">
           <span>Final score: </span>
-          <span>{score}</span>
+          <span className="font-bold">{score}</span>
         </li>
         <li className="flex justify-between px-3 py-1 text-cerise-500 font-bold">
           Final rank: {rank}
