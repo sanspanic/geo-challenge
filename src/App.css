@@ -1,6 +1,6 @@
 .timer {
   height: 30px;
-  background: linear-gradient(135deg, #c3ec52 0%, #0ba29d 100%);
+  width: 100%;
 }
 
 .leaderboard li:nth-child(2) {
@@ -10,6 +10,10 @@
 
 .leaderboard li:nth-child(2n) {
   background-color: rgba(128, 128, 128, 0.151);
+}
+
+.bg-gradient-gray {
+  background: linear-gradient(135deg, #d9d9d9 0%, #fbfbfb 100%);
 }
 
 .bg-gradient-pale {

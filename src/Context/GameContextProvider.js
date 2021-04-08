@@ -9,6 +9,11 @@ const GameContextProvider = ({ children }) => {
   const [score, setScore] = useState(0);
   const [countries, setCountries] = useState([]);
   const [hasLoaded, setHasLoaded] = useState(false);
+  const [status, setStatus] = useState({
+    isActive: false,
+    isLost: false,
+    isWon: false,
+  });
 
   useEffect(() => {
     const getCountryData = async () => {
@@ -34,6 +39,8 @@ const GameContextProvider = ({ children }) => {
         countries,
         setCountries,
         hasLoaded,
+        status,
+        setStatus,
       }}
     >
       {children}
