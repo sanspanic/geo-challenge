@@ -3,6 +3,10 @@
   width: 100%;
 }
 
+.endgame li:nth-child(2n) {
+  background-color: rgba(128, 128, 128, 0.151);
+}
+
 .leaderboard li:nth-child(2) {
   color: #fc0f77;
   font-weight: 800;

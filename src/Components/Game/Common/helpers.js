@@ -38,5 +38,5 @@ export const gameLost = (mistakes) => {
 };
 
 export const gameWon = (turn) => {
-  return turn === 3;
+  return turn === 20;
 };
