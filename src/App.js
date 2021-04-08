@@ -5,16 +5,19 @@ import Button from "./Components/Common/Button";
 import { Link, BrowserRouter } from "react-router-dom";
 import Routes from "./Components/Routes/Routes";
 import AuthContextProvider from "./Context/AuthContextProvider";
+import GameContextProvider from "./Context/GameContextProvider";
 
 function App() {
   return (
     <div className="content-wrapper">
       <AuthContextProvider>
-        <BrowserRouter>
-          <Navbar />
-          <Routes />
-          <Footer />
-        </BrowserRouter>
+        <GameContextProvider>
+          <BrowserRouter>
+            <Navbar />
+            <Routes />
+            <Footer />
+          </BrowserRouter>
+        </GameContextProvider>
       </AuthContextProvider>
     </div>
   );

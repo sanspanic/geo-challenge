@@ -4,6 +4,7 @@ import Welcome from "./Welcome";
 import Board from "../Leaderboard/Board";
 import Login from "../Auth/Login";
 import Register from "../Auth/Register";
+import GameWrapper from "../Game/Common/GameWrapper";
 
 const Routes = () => {
   return (
@@ -19,6 +20,9 @@ const Routes = () => {
       </Route>
       <Route exact path="/register">
         <Register />
+      </Route>
+      <Route exact path="/game">
+        <GameWrapper />
       </Route>
     </Switch>
   );

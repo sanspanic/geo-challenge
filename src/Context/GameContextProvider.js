@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import GameContext from "./GameContext";
 
 const GameContextProvider = ({ children }) => {
-  const [level, setLevel] = useState(1);
+  const [level, setLevel] = useState({ num: 1, title: "Guess The Flag" });
   const [score, setScore] = useState(0);
 
   return (

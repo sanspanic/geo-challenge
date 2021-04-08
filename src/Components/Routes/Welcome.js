@@ -23,7 +23,7 @@ const Welcome = () => {
         </p>
         <div className="text-center flex justify-center gap-3">
           <Button text="login" gradient="purple" />
-          <Button text="guest" gradient="green" />
+          <Button text="game" gradient="green" />
         </div>
 
         <p className="text-sm text-gray-600 text-center pt-5">
