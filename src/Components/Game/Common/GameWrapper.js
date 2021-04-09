@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import GameContext from "../../../Context/GameContext";
 import FlagLevel from "../FlagLevel/FlagLevel";
 import EndGame from "./EndGame";
+import CapitalLevel from "../CapitalLevel/CapitalLevel";
 
 const GameWrapper = () => {
   const { level, status, setStatus, setLevel } = useContext(GameContext);
@@ -32,6 +33,7 @@ const GameWrapper = () => {
           </>
         )}
         {status.isActive && <>{level === 1 && <FlagLevel />}</>}
+        {status.isActive && level === 2 && <CapitalLevel />}
       </div>
     </div>
   );

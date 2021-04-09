@@ -14,6 +14,10 @@
   background-color: white;
 }
 
+.capitals-grid div:hover {
+  background: linear-gradient(135deg, #612489 0%, #fc0f77 100%);
+}
+
 .leaderboard li:nth-child(2) {
   color: #fc0f77;
   font-weight: 800;

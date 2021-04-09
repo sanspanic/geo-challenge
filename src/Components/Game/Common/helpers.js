@@ -42,5 +42,5 @@ export const gameWon = (turn) => {
 };
 
 export const nextLevel = (turn) => {
-  return turn % 20 === 0;
+  return turn % 5 === 0;
 };
