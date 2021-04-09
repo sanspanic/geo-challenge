@@ -4,27 +4,24 @@ import GameContext from "../../../Context/GameContext";
 import { v4 as uuid } from "uuid";
 import { gameLost, nextLevel } from "./helpers";
 
-const Timer = ({ setTurn, turn, timerId }) => {
-  const { score, mistakes, setMistakes, width, setWidth } = useContext(
-    GameContext
-  );
-
+const Timer = ({ setTurn, timerId }) => {
+  const { setWidth, setMistakes, mistakes, width, score } = useContext();
+  //initiate interval to decrease width with time
   useEffect(() => {
-    setWidth(100);
     timerId.current = setInterval(() => {
-      console.log("I am running");
-      setWidth((w) => w - 0.5);
-      console.log("width: ", width);
-    }, 20);
-  }, [turn]);
+      setWidth((w) => {
+        console.log(w);
+        return w - 1;
+      });
+    }, 50);
+  }, []);
 
-  //stops interval on width -1
+  //handle timeOut
   useEffect(() => {
-    if (width < 0) {
-      console.log("should stop interval now");
-      clearInterval(timerId.current);
+    if (width === 0) {
       setMistakes([...mistakes, "mistake"]);
       setTurn((t) => t + 1);
+      setWidth(100);
     }
   }, [width]);
 

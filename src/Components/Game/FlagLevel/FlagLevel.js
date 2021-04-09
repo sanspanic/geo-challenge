@@ -38,25 +38,6 @@ const FlagLevel = () => {
   const [turn, setTurn] = useState(1);
   const timerId = useRef();
 
-  //initiate interval to decrease width with time
-  useEffect(() => {
-    timerId.current = setInterval(() => {
-      setWidth((w) => {
-        console.log(w);
-        return w - 1;
-      });
-    }, 50);
-  }, []);
-
-  //handle timeOut
-  useEffect(() => {
-    if (width === 0) {
-      setMistakes([...mistakes, "mistake"]);
-      setTurn((t) => t + 1);
-      setWidth(100);
-    }
-  }, [width]);
-
   useEffect(() => {
     if (nextLevel(turn)) {
       console.log("initiating next level");
@@ -126,27 +107,7 @@ const FlagLevel = () => {
           src={selection[3].flag}
         />
       </div>
-      {/*       <Timer setTurn={setTurn} turn={turn} timerId={timerId} /> */}
-      <div className="w-40 my-6 border border-black rounded bg-white p-2">
-        <div className="text-center">
-          Score: <span className="text-xl font-bold">{score}</span>
-        </div>
-        <div className="text-center">
-          {mistakes.map((m) => (
-            <SmileyXEyes
-              key={uuid()}
-              className="inline text-red-600 my-1"
-              size={24}
-            />
-          ))}
-        </div>
-      </div>
-      <div className="self-stretch col-start-1 col-span-8 border-2 border-black">
-        <div
-          style={{ width: `${width}%` }}
-          className="bg-gradient-purple timer"
-        ></div>
-      </div>
+      <Timer setTurn={setTurn} timerId={timerId} />
     </>
   );
 };
