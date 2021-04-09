@@ -18,7 +18,8 @@ const FlagLevel = () => {
     status,
     setStatus,
     setLevel,
-    level,
+    mistakes,
+    setMistakes,
   } = useContext(GameContext);
 
   const [selection, setSelection] = useState([
@@ -31,7 +32,6 @@ const FlagLevel = () => {
   const [winner, setWinner] = useState({ name: "", flag: "", capital: "" });
   //each level will have 20 turns
   const [turn, setTurn] = useState(1);
-  const [mistakes, setMistakes] = useState(["mistake"]);
 
   useEffect(() => {
     if (gameWon(turn)) {
@@ -77,30 +77,31 @@ const FlagLevel = () => {
       <h1 className="text-center font-black text-4xl col-start-2 col-span-6 mb-10">
         {winner.name}
       </h1>
-      <div className="grid auto-rows-fr grid-cols-8 gap-2 place-items-stretch place-content-stretch">
+      <div className="grid flags-grid grid-cols-8 gap-2 place-content-stretch place-items-stretch">
         <img
+          className="h-full w-40 mx-1 col-span-4 md:col-span-2 transform-gpu hover:scale-110 duration-500 cursor-pointer"
           onClick={handleClick}
           alt="flag"
           src={selection[0].flag}
-          className="shadow-xl rounded p-2 bg-gradient-gray mx-1 col-span-4 md:col-span-2  transform-gpu hover:scale-110 duration-500 cursor-pointer"
         />
+
         <img
+          className="h-full w-40 mx-1 col-start-5 col-span-4 md:col-start-3 md:col-span-2 transform-gpu hover:scale-110 duration-500 cursor-pointer"
           onClick={handleClick}
           alt="flag"
           src={selection[1].flag}
-          className=" shadow-xl p-2 bg-gradient-gray mx-1 col-start-5 col-span-4 md:col-start-3 md:col-span-2  transform-gpu hover:scale-110 duration-500 cursor-pointer"
         />
         <img
+          className="h-full w-40 mx-1 col-start-1 col-span-4 md:col-start-5 md:col-span-2  transform-gpu hover:scale-110 duration-500 cursor-pointer"
           onClick={handleClick}
           alt="flag"
           src={selection[2].flag}
-          className="shadow-xl p-2 bg-gradient-gray mx-1 col-start-1 col-span-4 md:col-start-5 md:col-span-2  transform-gpu hover:scale-110 duration-500 cursor-pointer"
         />
         <img
+          className="h-full w-40 mx-1 col-start-5 col-span-4 md:col-start-7 md:col-span-2  transform-gpu hover:scale-110 duration-500 cursor-pointer"
           onClick={handleClick}
           alt="flag"
           src={selection[3].flag}
-          className="shadow-xl p-2 bg-gradient-gray mx-1 col-start-5 col-span-4 md:col-start-7 md:col-span-2  transform-gpu hover:scale-110 duration-500 cursor-pointer"
         />
       </div>
       <Timer mistakes={mistakes} />

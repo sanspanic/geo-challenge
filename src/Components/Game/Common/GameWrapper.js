@@ -4,10 +4,14 @@ import FlagLevel from "../FlagLevel/FlagLevel";
 import EndGame from "./EndGame";
 
 const GameWrapper = () => {
-  const { level, status, setStatus } = useContext(GameContext);
+  const { level, status, setStatus, setLevel } = useContext(GameContext);
   const LEVEL_TITLES = {
     1: "Guess the Flag",
     2: "Guess the Capital",
+  };
+
+  const startLevel = () => {
+    setStatus({ isLost: false, isWon: false, isActive: true });
   };
 
   return (
@@ -20,7 +24,7 @@ const GameWrapper = () => {
               Level {level} - {LEVEL_TITLES[level]}
             </h1>
             <button
-              onClick={() => setStatus({ ...status, isActive: true })}
+              onClick={startLevel}
               className="px-4 py-2 bg-gradient-green rounded font-bold text-white transition duration-400 hover:text-black transform-gpu hover:scale-110"
             >
               Start Level

@@ -3,7 +3,9 @@ import GameContext from "../../../Context/GameContext";
 import { Link } from "react-router-dom";
 
 const EndGame = () => {
-  const { setStatus, status, score, setScore } = useContext(GameContext);
+  const { setStatus, status, score, setScore, setMistakes } = useContext(
+    GameContext
+  );
   const [rank, setRank] = useState("");
 
   useEffect(() => {
@@ -15,6 +17,7 @@ const EndGame = () => {
   const restart = () => {
     setStatus({ isActive: false, isWon: false, isLost: false });
     setScore(0);
+    setMistakes([]);
   };
 
   return (
