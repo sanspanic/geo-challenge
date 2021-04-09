@@ -1,5 +1,6 @@
 const COUNTRIES_LEN = 249;
 const SELECTION_LEN = 4;
+const NUM_OF_TURNS = 5;
 
 const getRandInt = (len) => {
   return Math.floor(Math.random() * len);
@@ -38,9 +39,9 @@ export const gameLost = (mistakes) => {
 };
 
 export const gameWon = (turn) => {
-  return turn === 20;
+  return turn === NUM_OF_TURNS;
 };
 
 export const nextLevel = (turn) => {
-  return turn % 5 === 0;
+  return turn % NUM_OF_TURNS === 0;
 };

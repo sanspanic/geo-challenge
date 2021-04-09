@@ -5,6 +5,8 @@ import {
   pickWinner,
   isCorrect,
   gameLost,
+  gameWon,
+  nextLevel,
 } from "../Common/helpers";
 import Timer from "../Common/Timer";
 
@@ -28,9 +30,22 @@ const CapitalLevel = () => {
     mistakes,
     status,
     setStatus,
+    setLevel,
   } = useContext(GameContext);
 
   useEffect(() => {
+    //uncomment if you add third level
+    /*     if (nextLevel(turn)) {
+      console.log("initiating next level");
+      setLevel((l) => l + 1);
+      setStatus({ ...status, isActive: false });
+    } */
+
+    if (gameWon(turn)) {
+      console.log("YA WON");
+      setStatus({ ...status, isWon: true, isActive: false });
+    }
+
     const indexArr = makeUniqueSelection();
     let selectionArr = [];
     for (let idx of indexArr) {

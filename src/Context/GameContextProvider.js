@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import GameContext from "./GameContext";
-import GeoApi from "../API/geoAPI";
-import axios from "axios";
 import geoApi from "../API/geoAPI";
 
 const GameContextProvider = ({ children }) => {
+  const [width, setWidth] = useState(100);
   const [level, setLevel] = useState(1);
   const [score, setScore] = useState(0);
   const [countries, setCountries] = useState([]);
@@ -44,6 +43,8 @@ const GameContextProvider = ({ children }) => {
         setStatus,
         mistakes,
         setMistakes,
+        width,
+        setWidth,
       }}
     >
       {children}
