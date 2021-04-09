@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import { SmileyXEyes } from "phosphor-react";
 import GameContext from "../../../Context/GameContext";
 import { v4 as uuid } from "uuid";
-import { gameLost, nextLevel } from "./helpers";
 
 const Timer = ({ setTurn, timerId }) => {
   const { setWidth, setMistakes, mistakes, width, score } = useContext(
@@ -22,7 +21,7 @@ const Timer = ({ setTurn, timerId }) => {
   //handle timeOut
   useEffect(() => {
     if (width === 0) {
-      setMistakes([...mistakes, "mistake"]);
+      setMistakes((m) => m - 1);
       setTurn((t) => t + 1);
       setWidth(100);
     }
@@ -35,7 +34,7 @@ const Timer = ({ setTurn, timerId }) => {
           Score: <span className="text-xl font-bold">{score}</span>
         </div>
         <div className="text-center">
-          {mistakes.map((m) => (
+          {Array.from({ length: mistakes }).map((m) => (
             <SmileyXEyes
               key={uuid()}
               className="inline text-red-600 my-1"

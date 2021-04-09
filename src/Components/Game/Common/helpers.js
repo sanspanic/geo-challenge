@@ -35,7 +35,7 @@ export const isCorrect = (value1, value2) => {
 };
 
 export const gameLost = (mistakes) => {
-  return mistakes.length === 5;
+  return mistakes === 0;
 };
 
 export const gameWon = (turn) => {

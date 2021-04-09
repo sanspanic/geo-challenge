@@ -71,7 +71,7 @@ const FlagLevel = () => {
       }
       setScore((s) => s + 100);
     } else {
-      setMistakes([...mistakes, "mistake"]);
+      setMistakes((m) => m - 1);
     }
     setTurn((turn) => turn + 1);
     setWidth(100);

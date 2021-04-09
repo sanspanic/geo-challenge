@@ -3,6 +3,10 @@
   width: 100%;
 }
 
+.rank-card img {
+  border-radius: 20%;
+}
+
 .endgame li:nth-child(2n) {
   background-color: rgba(128, 128, 128, 0.151);
 }

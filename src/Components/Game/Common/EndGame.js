@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import GameContext from "../../../Context/GameContext";
 import { Link } from "react-router-dom";
+import Loser from "../../../Assets/loser.jpg";
 
 const EndGame = () => {
   const {
@@ -14,23 +15,37 @@ const EndGame = () => {
     speedBonus,
   } = useContext(GameContext);
   const [rank, setRank] = useState("");
+  const [imgSrc, setImgSrc] = useState("");
+  const text = {
+    Loser: `Geographically speaking, you are not the sharpest tool in the shed. At
+      any given moment in time, you are likely to be lost and actively
+      searching for an exit door.`,
+    Lost_in_Forest: `text for lost in forest`,
+  };
 
   useEffect(() => {
-    if (score < 100) {
+    if (400 >= score > 300) {
+      setRank("Can_Use_Compass");
+    } else if (300 >= score > 200) {
+      setRank("Franklin");
+    } else if (200 >= score > 100) {
+      setRank("Lost_in_Forest");
+    } else if (score < 100) {
       setRank("Loser");
+      setImgSrc(Loser);
     }
-  }, [score]);
+  }, [score, setRank]);
 
   const restart = () => {
     setLevel(1);
     setStatus({ isActive: false, isWon: false, isLost: false });
     setScore(0);
-    setMistakes([]);
+    setMistakes(5);
   };
 
   return (
-    <>
-      <div className="flex flex-col items-center bg-white bg-opacity-50 border p-10 max-w-screen-sm md:max-w-screen-md">
+    <div className="grid grid-cols-2 gap-10">
+      <div className="rounded flex flex-col items-center bg-white bg-opacity-50 border p-10 max-w-screen-sm md:max-w-screen-md">
         <h1 className="font-black text-4xl">
           {status.isWon ? "You made it!" : "You lost!"}
         </h1>
@@ -45,9 +60,9 @@ const EndGame = () => {
             </span>
           </li>
           <li className="flex justify-between px-3 py-1">
-            <span>Mistake penalty: </span>
+            <span>Accuracy bonus: </span>
             <span>
-              {mistakes.length} x 100 = {mistakes.length * 100}
+              {mistakes} x 50 = {mistakes * 50}
             </span>
           </li>
           <li className="flex justify-between px-3 py-1">
@@ -72,8 +87,15 @@ const EndGame = () => {
           Play again!
         </button>
       </div>
-      <div className="bg-white border"> this si the otehr di </div>
-    </>
+      <div className="rank-card bg-white bg-opacity-50 border self-center p-10 rounded flex flex-col items-center self-stretch">
+        <h1 className="text-4xl font-black text-center">
+          Your Rank:{" "}
+          <span className="text-cerise-500">{rank.replace("_", "")}</span>
+        </h1>
+        <img className="w-44 py-5" src={imgSrc}></img>
+        <p className="max-w-sm">{text[rank]}</p>
+      </div>
+    </div>
   );
 };
 

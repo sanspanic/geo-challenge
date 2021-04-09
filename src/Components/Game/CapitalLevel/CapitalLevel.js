@@ -31,8 +31,10 @@ const CapitalLevel = () => {
     mistakes,
     status,
     setStatus,
-    setLevel,
+    speedBonus,
+    setSpeedBonus,
     setWidth,
+    width,
   } = useContext(GameContext);
 
   useEffect(() => {
@@ -70,9 +72,12 @@ const CapitalLevel = () => {
 
   const handleClick = (e) => {
     if (isCorrect(e.target.innerText, winner.capital)) {
+      if (width >= 70) {
+        setSpeedBonus(speedBonus + 50);
+      }
       setScore((s) => s + 100);
     } else {
-      setMistakes([...mistakes, "mistake"]);
+      setMistakes((m) => m - 1);
     }
     setTurn((turn) => turn + 1);
     setWidth(100);
