@@ -5,7 +5,10 @@ import { v4 as uuid } from "uuid";
 import { gameLost, nextLevel } from "./helpers";
 
 const Timer = ({ setTurn, timerId }) => {
-  const { setWidth, setMistakes, mistakes, width, score } = useContext();
+  const { setWidth, setMistakes, mistakes, width, score } = useContext(
+    GameContext
+  );
+
   //initiate interval to decrease width with time
   useEffect(() => {
     timerId.current = setInterval(() => {

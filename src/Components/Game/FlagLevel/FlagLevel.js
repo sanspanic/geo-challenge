@@ -8,8 +8,6 @@ import {
   nextLevel,
 } from "../Common/helpers";
 import Timer from "../Common/Timer";
-import { SmileyXEyes } from "phosphor-react";
-import { v4 as uuid } from "uuid";
 
 const FlagLevel = () => {
   const {
@@ -21,9 +19,10 @@ const FlagLevel = () => {
     setLevel,
     mistakes,
     setMistakes,
-    score,
-    width,
     setWidth,
+    width,
+    speedBonus,
+    setSpeedBonus,
   } = useContext(GameContext);
 
   const [selection, setSelection] = useState([
@@ -67,6 +66,9 @@ const FlagLevel = () => {
 
   const handleClick = (e) => {
     if (isCorrect(e.target.src, winner.flag)) {
+      if (width >= 70) {
+        setSpeedBonus(speedBonus + 50);
+      }
       setScore((s) => s + 100);
     } else {
       setMistakes([...mistakes, "mistake"]);

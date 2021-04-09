@@ -3,6 +3,7 @@ import GameContext from "./GameContext";
 import geoApi from "../API/geoAPI";
 
 const GameContextProvider = ({ children }) => {
+  const [speedBonus, setSpeedBonus] = useState(0);
   const [width, setWidth] = useState(100);
   const [level, setLevel] = useState(1);
   const [score, setScore] = useState(0);
@@ -45,6 +46,8 @@ const GameContextProvider = ({ children }) => {
         setMistakes,
         width,
         setWidth,
+        speedBonus,
+        setSpeedBonus,
       }}
     >
       {children}

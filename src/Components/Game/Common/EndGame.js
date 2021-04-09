@@ -11,6 +11,7 @@ const EndGame = () => {
     setMistakes,
     setLevel,
     mistakes,
+    speedBonus,
   } = useContext(GameContext);
   const [rank, setRank] = useState("");
 
@@ -39,7 +40,9 @@ const EndGame = () => {
           </h3>
           <li className="flex justify-between px-3 py-1">
             <span>Speed bonus: </span>
-            <span>100</span>
+            <span>
+              {speedBonus / 50} x 50 = {speedBonus}
+            </span>
           </li>
           <li className="flex justify-between px-3 py-1">
             <span>Mistake penalty: </span>

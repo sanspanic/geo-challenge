@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import GameContext from "../../../Context/GameContext";
 import {
   makeUniqueSelection,
@@ -21,6 +21,7 @@ const CapitalLevel = () => {
   const [winner, setWinner] = useState({ name: "", flag: "", capital: "" });
   //each level will have 20 turns
   const [turn, setTurn] = useState(1);
+  const timerId = useRef();
 
   const {
     hasLoaded,
@@ -31,6 +32,7 @@ const CapitalLevel = () => {
     status,
     setStatus,
     setLevel,
+    setWidth,
   } = useContext(GameContext);
 
   useEffect(() => {
@@ -43,6 +45,7 @@ const CapitalLevel = () => {
 
     if (gameWon(turn)) {
       console.log("YA WON");
+      clearInterval(timerId.current);
       setStatus({ ...status, isWon: true, isActive: false });
     }
 
@@ -60,6 +63,7 @@ const CapitalLevel = () => {
   useEffect(() => {
     if (gameLost(mistakes)) {
       console.log("YA LOST");
+      clearInterval(timerId.current);
       setStatus({ ...status, isLost: true, isActive: false });
     }
   }, [mistakes]);
@@ -71,6 +75,7 @@ const CapitalLevel = () => {
       setMistakes([...mistakes, "mistake"]);
     }
     setTurn((turn) => turn + 1);
+    setWidth(100);
   };
 
   return (
@@ -104,7 +109,7 @@ const CapitalLevel = () => {
           {selection[3].capital}
         </div>
       </div>
-      <Timer mistakes={mistakes} />
+      <Timer setTurn={setTurn} timerId={timerId} />
     </>
   );
 };
