@@ -15,12 +15,48 @@ const Profile = () => {
     email: "",
   };
   const [formData, setFormData] = useState(initialFormData);
-  const [success, setSuccess] = useState(false);
-  const { user } = useContext(AuthContext);
-  const { setRank, rank } = useContext(GameContext);
-  const handleSubmit = () => {};
-  const handleChange = () => {};
+  const [isLoading, setIsLoading] = useState(false);
   const [currUser, setCurrUser] = useState({});
+  const [success, setSuccess] = useState(false);
+  const { user, setUser } = useContext(AuthContext);
+  const { setRank, rank } = useContext(GameContext);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const tryUpdate = async () => {
+      try {
+        setIsLoading(true);
+        const res = await backendAPI.updateUser(currUser.username, formData);
+        console.log("RES:", res);
+        setSuccess(true);
+        setTimeout(() => {
+          // save token and user to localStorage
+          localStorage.clear();
+          localStorage.setItem("token", res.token);
+          localStorage.setItem(
+            "user",
+            JSON.stringify({ username: formData.username })
+          );
+          //save user to context
+          setUser({ username: formData.username });
+          setIsLoading(false);
+        }, 4000);
+      } catch (err) {
+        console.log(err);
+        setIsLoading(false);
+      }
+    };
+    tryUpdate();
+    setFormData(initialFormData);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((formData) => ({
+      ...formData,
+      [name]: value,
+    }));
+  };
 
   useEffect(() => {
     const getUser = async (username) => {
@@ -167,12 +203,16 @@ const Profile = () => {
           </div>
           {success ? (
             <p className="text-xs">
-              <span className="font-bold text-cerise-500">SUCCESS!</span> You
-              are being redirected... <RotatingGlobe size={20} />
+              <span className="font-bold text-cerise-500">SUCCESS!</span> Your
+              user details have been updated.
             </p>
           ) : (
-            <p className="text-xs sm:text-sm text-gray-500">
-              Please enter your password to enact changes.
+            <p className="text-xs text-center sm:text-sm text-gray-500">
+              {isLoading ? (
+                <RotatingGlobe className="mx-auto" size={20} />
+              ) : (
+                "Please enter your password to enact changes."
+              )}
             </p>
           )}
         </form>

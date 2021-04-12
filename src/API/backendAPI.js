@@ -36,6 +36,10 @@ class backendAPI {
     let res = await this.request(`users/${username}`);
     return res.user;
   }
+  static async updateUser(username, data) {
+    let res = await this.request(`users/${username}`, data, "patch");
+    return res;
+  }
   static async updateHighscore(username, data) {
     let res = await this.request(`highscores/${username}`, data, "patch");
     return res;
