@@ -6,13 +6,13 @@ const GameContextProvider = ({ children }) => {
   const [speedBonus, setSpeedBonus] = useState(0);
   const [width, setWidth] = useState(100);
   const [level, setLevel] = useState(1);
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState(101);
   const [countries, setCountries] = useState([]);
   const [hasLoaded, setHasLoaded] = useState(false);
   const [mistakes, setMistakes] = useState(5);
   const [status, setStatus] = useState({
     isActive: false,
-    isLost: false,
+    isLost: true,
     isWon: false,
   });
 

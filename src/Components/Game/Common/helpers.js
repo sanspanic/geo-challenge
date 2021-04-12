@@ -1,6 +1,8 @@
 const COUNTRIES_LEN = 249;
 const SELECTION_LEN = 4;
 const NUM_OF_TURNS = 5;
+const NUM_OF_LEVELS = 2;
+export const MAX_SCORE = NUM_OF_TURNS * NUM_OF_LEVELS * 150;
 
 const getRandInt = (len) => {
   return Math.floor(Math.random() * len);
@@ -8,6 +10,10 @@ const getRandInt = (len) => {
 
 const hasDuplicates = (arr) => {
   return new Set(arr).size !== arr.length;
+};
+
+export const getPercentile = (score) => {
+  return (score / MAX_SCORE) * 100;
 };
 
 export const makeUniqueSelection = () => {

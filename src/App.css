@@ -5,6 +5,8 @@
 
 .rank-card img {
   border-radius: 20%;
+  width: 200px;
+  object-fit: fill;
 }
 
 .endgame li:nth-child(2n) {

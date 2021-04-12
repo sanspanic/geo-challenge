@@ -32,6 +32,14 @@ class backendAPI {
     let res = await this.request("auth/register", data, "post");
     return res.token;
   }
+  static async getUser(username) {
+    let res = await this.request(`users/${username}`);
+    return res.user;
+  }
+  static async updateHighscore(username, data) {
+    let res = await this.request(`users/${username}`, data, "patch");
+    return res.user;
+  }
 }
 
 export default backendAPI;
