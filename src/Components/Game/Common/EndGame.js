@@ -16,15 +16,15 @@ import backendAPI from "../../../API/backendAPI";
 const EndGame = () => {
   const {
     setStatus,
-    status,
     score,
     setScore,
     setMistakes,
     setLevel,
     mistakes,
     speedBonus,
+    rank,
+    setRank,
   } = useContext(GameContext);
-  const [rank, setRank] = useState(1);
   const [imgSrc, setImgSrc] = useState("");
   const [newHighScore, setNewHighScore] = useState(0);
 
@@ -74,7 +74,7 @@ const EndGame = () => {
       setRank(1);
       setImgSrc(Loser);
     }
-  }, [score, setRank]);
+  }, [score, setRank, setImgSrc]);
 
   const restart = () => {
     setLevel(1);

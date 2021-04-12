@@ -91,3 +91,8 @@ export const ranks = [
     },
   },
 ];
+
+export const calculateRank = (score) => {
+  const percentile = (score / MAX_SCORE) * 100;
+  return Math.ceil(percentile / (100 / 8));
+};

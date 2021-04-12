@@ -2,7 +2,9 @@ import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import backendAPI from "../../API/backendAPI";
 import AuthContext from "../../Context/AuthContext";
+import GameContext from "../../Context/GameContext";
 import RotatingGlobe from "../Common/RotatingGlobe";
+import { ranks, calculateRank } from "../Game/Common/helpers";
 
 const Profile = () => {
   const initialFormData = {
@@ -15,6 +17,7 @@ const Profile = () => {
   const [formData, setFormData] = useState(initialFormData);
   const [success, setSuccess] = useState(false);
   const { user } = useContext(AuthContext);
+  const { setRank, rank } = useContext(GameContext);
   const handleSubmit = () => {};
   const handleChange = () => {};
   const [currUser, setCurrUser] = useState({});
@@ -38,6 +41,15 @@ const Profile = () => {
     getUser(user.username);
   }, [user]);
 
+  useEffect(() => {
+    if (currUser.highscore) {
+      console.log("calculating rank");
+      const currRank = calculateRank(currUser.highscore);
+      console.log("currRank", currRank);
+      setRank(currRank);
+    }
+  }, [currUser]);
+
   return (
     <div className="bg-earth flex-grow flex place-items-center place-content-center">
       <div className="bg-white bg-opacity-50 rounded-xl shadow-xl sm:p-10 md:p-20 my-10 p-3">
@@ -48,7 +60,10 @@ const Profile = () => {
           Your highscore is:{" "}
           <span className="font-bold">{currUser.highscore}</span>
         </p>
-        <p>Your current rank is: </p>
+        <p>
+          Your current rank is:{" "}
+          <span className="font-bold">{ranks[0][rank].name}</span>
+        </p>
         <form
           className="my-10 bg-white  rounded shadow-xl p-10 mx-2 sm:mx-0 md:p-7"
           onSubmit={handleSubmit}
