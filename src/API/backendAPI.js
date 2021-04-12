@@ -37,8 +37,8 @@ class backendAPI {
     return res.user;
   }
   static async updateHighscore(username, data) {
-    let res = await this.request(`users/${username}`, data, "patch");
-    return res.user;
+    let res = await this.request(`highscores/${username}`, data, "patch");
+    return res;
   }
 }
 

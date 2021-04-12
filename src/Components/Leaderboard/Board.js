@@ -8,6 +8,7 @@ const Board = () => {
   const [error, setError] = useState({ is: false, message: "", status: 0 });
   const [scores, setScores] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     const getScores = async () => {
       try {
