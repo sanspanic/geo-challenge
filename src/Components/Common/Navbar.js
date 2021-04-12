@@ -11,7 +11,7 @@ const Navbar = () => {
   const { user } = useContext(AuthContext);
 
   return (
-    <div className="bg-black border-b navbar px-4 py-5 sm:max-w-full  md:px-24 lg:px-8">
+    <div className="bg-black border-b navbar px-4 py-5 sm:max-w-full md:max-w-full  md:px-24 lg:px-8">
       <div className="relative flex items-center justify-between">
         <Link
           to="/"
@@ -30,6 +30,7 @@ const Navbar = () => {
               <li className="tracking-wide text-earthgreen-400 italic">
                 Hi, {user.username}!{" "}
               </li>
+
               <li>
                 <Link
                   to="/game"
@@ -38,6 +39,16 @@ const Navbar = () => {
                   className="font-medium tracking-wide text-earthblue-400 transition-colors duration-200 hover:text-earthgreen-400"
                 >
                   Game
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/profile"
+                  aria-label="profile"
+                  title="profile"
+                  className="font-medium tracking-wide text-earthblue-400 transition-colors duration-200 hover:text-earthgreen-400"
+                >
+                  Profile
                 </Link>
               </li>
               <LogoutField />

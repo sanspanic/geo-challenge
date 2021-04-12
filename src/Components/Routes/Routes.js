@@ -5,6 +5,7 @@ import Board from "../Leaderboard/Board";
 import Login from "../Auth/Login";
 import Register from "../Auth/Register";
 import GameWrapper from "../Game/Common/GameWrapper";
+import Profile from "../Auth/Profile";
 
 const Routes = () => {
   return (
@@ -23,6 +24,9 @@ const Routes = () => {
       </Route>
       <Route exact path="/game">
         <GameWrapper />
+      </Route>
+      <Route exact path="/profile">
+        <Profile />
       </Route>
     </Switch>
   );

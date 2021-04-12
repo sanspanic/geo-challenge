@@ -30,7 +30,6 @@ const EndGame = () => {
 
   //update highscore
   useEffect(() => {
-    setScore(1207);
     const tryUpdateScore = async () => {
       try {
         const res = await backendAPI.updateHighscore(

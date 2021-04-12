@@ -45,14 +45,24 @@ const NavbarCollapsed = ({ setIsMenuOpen }) => {
             {user.username ? (
               <>
                 <li>
-                  <a
+                  <Link
                     href="/game"
                     aria-label="Product pricing"
                     title="Product pricing"
                     className="font-medium tracking-wide text-earthblue-400 transition-colors duration-200 hover:text-earthgreen-400"
                   >
                     Game
-                  </a>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/profile"
+                    aria-label="profile"
+                    title="profile"
+                    className="font-medium tracking-wide text-earthblue-400 transition-colors duration-200 hover:text-earthgreen-400"
+                  >
+                    Profile
+                  </Link>
                 </li>
                 <li>
                   <LogoutField />

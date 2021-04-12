@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { SmileyXEyes } from "phosphor-react";
+import { HeartStraight } from "phosphor-react";
 import GameContext from "../../../Context/GameContext";
 import { v4 as uuid } from "uuid";
 
@@ -12,7 +12,6 @@ const Timer = ({ setTurn, timerId }) => {
   useEffect(() => {
     timerId.current = setInterval(() => {
       setWidth((w) => {
-        console.log(w);
         return w - 1;
       });
     }, 50);
@@ -35,7 +34,7 @@ const Timer = ({ setTurn, timerId }) => {
         </div>
         <div className="text-center">
           {Array.from({ length: mistakes }).map((m) => (
-            <SmileyXEyes
+            <HeartStraight
               key={uuid()}
               className="inline text-red-600 my-1"
               size={24}
