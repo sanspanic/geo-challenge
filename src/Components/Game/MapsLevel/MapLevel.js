@@ -90,17 +90,19 @@ const Map = () => {
   return (
     <div className="">
       <div className="flex flex-col justify-center">
-        <h1 className="text-2xl font-black">Find Capital of {winner.name} </h1>
-        <div className=" border border-red-500 h-screen" id="map"></div>
+        <h1 className="text-2xl font-black py-2">
+          Find: Capital of {winner.name}
+        </h1>
+        <div className=" border " id="map"></div>
         <button
-          className="self-center bg-gradient-green px-4 py-2 rounded font-bold text-white transition duration-400 hover:text-black transform-gpu hover:scale-110"
+          className="mt-5 self-center bg-gradient-green px-4 py-2 rounded font-bold text-white transition duration-400 hover:text-black transform-gpu hover:scale-110"
           onClick={handleSubmit}
         >
           Submit Choice
         </button>
       </div>
 
-      <div className=" mx-auto w-40 my-6 border border-black rounded bg-white p-2">
+      <div className="bg-gradient-pale mx-auto w-40 my-6 border-2 border-cerise-500 shadow-xl rounded p-2">
         <div className="text-center">
           Score: <span className="text-xl font-bold">{score}</span>
         </div>
@@ -108,7 +110,7 @@ const Map = () => {
           {Array.from({ length: mistakes }).map((m) => (
             <HeartStraight
               key={uuid()}
-              className="inline text-red-600 my-1"
+              className="inline text-cerise-500 my-1"
               size={24}
             />
           ))}

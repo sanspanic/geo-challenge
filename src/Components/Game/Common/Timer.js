@@ -29,7 +29,7 @@ const Timer = ({ setTurn, timerId }) => {
 
   return (
     <>
-      <div className="w-40 my-6 border border-black rounded bg-white p-2">
+      <div className="w-40 my-6 border-2 border-cerise-500 rounded-xl bg-gradient-pale p-2 bg-gradient-gray">
         <div className="text-center">
           Score: <span className="text-xl font-bold">{score}</span>
         </div>
@@ -37,7 +37,7 @@ const Timer = ({ setTurn, timerId }) => {
           {Array.from({ length: mistakes }).map((m) => (
             <HeartStraight
               key={uuid()}
-              className="inline text-red-600 my-1"
+              className="inline text-cerise-500 my-1"
               size={24}
             />
           ))}

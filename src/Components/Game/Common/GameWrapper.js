@@ -22,12 +22,12 @@ const GameWrapper = () => {
   //make sure new game starts when "game" is clicked, otherwise will display previous endgame state
   useEffect(() => {
     setStatus({ isLost: false, isWon: false, isActive: false });
-    setLevel(1);
+    setLevel(3);
     setWidth(100);
   }, [setStatus, setLevel, setWidth]);
 
   return (
-    <div className="my-5 bg-earth flex-grow flex place-items-center place-content-center">
+    <div className="py-5 bg-earth flex-grow flex place-items-center place-content-center">
       {status.isLost || status.isWon ? (
         <EndGame />
       ) : (
