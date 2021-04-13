@@ -6,7 +6,9 @@ import CapitalLevel from "../CapitalLevel/CapitalLevel";
 import MapLevel from "../MapsLevel/MapLevel";
 
 const GameWrapper = () => {
-  const { level, status, setStatus, setLevel } = useContext(GameContext);
+  const { level, status, setStatus, setLevel, setWidth } = useContext(
+    GameContext
+  );
   const LEVEL_TITLES = {
     1: "Guess the Flag",
     2: "Guess the Capital",
@@ -21,6 +23,7 @@ const GameWrapper = () => {
   useEffect(() => {
     setStatus({ isLost: false, isWon: false, isActive: false });
     setLevel(1);
+    setWidth(100);
   }, []);
 
   return (

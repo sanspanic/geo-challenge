@@ -42,6 +42,7 @@ const CapitalLevel = () => {
     //uncomment if you add third level
     if (nextLevel(turn)) {
       console.log("initiating next level");
+      clearInterval(timerId.current);
       setLevel((l) => l + 1);
       setStatus({ ...status, isActive: false });
     }
