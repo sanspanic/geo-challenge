@@ -1,6 +1,6 @@
 import axios from "axios";
 const BASE_URL =
-  "https://restcountries.eu/rest/v2/all?fields=name;capital;flag;";
+  "https://restcountries.eu/rest/v2/all?fields=name;capital;flag;latlng";
 
 class geoApi {
   static async getData() {

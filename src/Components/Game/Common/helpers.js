@@ -1,8 +1,12 @@
 const COUNTRIES_LEN = 249;
 const SELECTION_LEN = 4;
-const NUM_OF_TURNS = 15;
-const NUM_OF_LEVELS = 2;
-export const MAX_SCORE = NUM_OF_TURNS * NUM_OF_LEVELS * 150 + 250;
+const NUM_OF_TURNS = 5;
+const NUM_OF_LEVELS = 3;
+
+export const MAX_SCORE =
+  NUM_OF_TURNS * ((NUM_OF_LEVELS - 1) * 150) + NUM_OF_TURNS * 100 + 250;
+
+console.log(MAX_SCORE);
 
 const getRandInt = (len) => {
   return Math.floor(Math.random() * len);
@@ -36,6 +40,11 @@ export const pickWinner = (arr) => {
   return arr[randIdx];
 };
 
+export const pickOnlyOne = (arr) => {
+  const randIdx = getRandInt(COUNTRIES_LEN);
+  return arr[randIdx];
+};
+
 export const isCorrect = (value1, value2) => {
   return value1 === value2;
 };
@@ -50,6 +59,33 @@ export const gameWon = (turn) => {
 
 export const nextLevel = (turn) => {
   return turn % NUM_OF_TURNS === 0;
+};
+
+export const evaluateMapGuess = (distance) => {
+  console.log(distance);
+  if (900 < distance) {
+    return 0;
+  } else if (800 < distance) {
+    return 10;
+  } else if (700 < distance) {
+    return 20;
+  } else if (600 < distance) {
+    return 30;
+  } else if (500 < distance) {
+    return 40;
+  } else if (400 < distance) {
+    return 50;
+  } else if (300 < distance) {
+    return 60;
+  } else if (200 < distance) {
+    return 70;
+  } else if (100 < distance) {
+    return 80;
+  } else if (50 < distance) {
+    return 90;
+  } else {
+    return 100;
+  }
 };
 
 export const ranks = [
@@ -95,3 +131,5 @@ export const calculateRank = (score) => {
   const percentile = (score / MAX_SCORE) * 100;
   return Math.ceil(percentile / (100 / 8));
 };
+
+export const coordinates = [];

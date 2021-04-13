@@ -3,12 +3,14 @@ import GameContext from "../../../Context/GameContext";
 import FlagLevel from "../FlagLevel/FlagLevel";
 import EndGame from "./EndGame";
 import CapitalLevel from "../CapitalLevel/CapitalLevel";
+import MapLevel from "../MapsLevel/MapLevel";
 
 const GameWrapper = () => {
   const { level, status, setStatus, setLevel } = useContext(GameContext);
   const LEVEL_TITLES = {
     1: "Guess the Flag",
     2: "Guess the Capital",
+    3: "Guess the Location",
   };
 
   const startLevel = () => {
@@ -18,10 +20,11 @@ const GameWrapper = () => {
   //make sure new game starts when "game" is clicked, otherwise will display previous endgame state
   useEffect(() => {
     setStatus({ isLost: false, isWon: false, isActive: false });
+    setLevel(1);
   }, []);
 
   return (
-    <div className="bg-earth flex-grow flex place-items-center place-content-center">
+    <div className="my-5 bg-earth flex-grow flex place-items-center place-content-center">
       {status.isLost || status.isWon ? (
         <EndGame />
       ) : (
@@ -41,6 +44,7 @@ const GameWrapper = () => {
           )}
           {status.isActive && <>{level === 1 && <FlagLevel />}</>}
           {status.isActive && level === 2 && <CapitalLevel />}
+          {status.isActive && level === 3 && <MapLevel />}
         </div>
       )}
     </div>
