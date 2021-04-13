@@ -8,6 +8,7 @@ const Login = () => {
   const { setUser } = useContext(AuthContext);
   const initialFormData = { username: "", password: "" };
   const [formData, setFormData] = useState(initialFormData);
+  const [error, setError] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,9 +23,11 @@ const Login = () => {
         );
         //save user to context
         setUser({ username: formData.username });
+        setError(false);
         //redirect to game
         history.push("/game");
       } catch (err) {
+        setError(true);
         console.log(err);
       }
     };
@@ -92,6 +95,11 @@ const Login = () => {
             Login
           </button>
         </div>
+        {error ? (
+          <p className="text-sm text-red-500">
+            Incorrect username/password combination.
+          </p>
+        ) : null}
         <p className="text-xs sm:text-sm text-gray-500">
           No account yet?{" "}
           <Link to="register" className="underline italic text-black">

@@ -15,16 +15,9 @@ const Register = () => {
     lastName: "",
   };
 
-  /*   const testFormData = {
-    username: "marco",
-    password: "password",
-    email: "marco@polo.com",
-    firstName: "marco",
-    lastName: "polo",
-  }; */
-
   const [formData, setFormData] = useState(initialFormData);
   const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,6 +25,7 @@ const Register = () => {
       try {
         const token = await backendAPI.register(formData);
         setSuccess(true);
+        setError(false);
         setTimeout(() => {
           // save token and user to localStorage
           localStorage.setItem("token", token);
@@ -46,6 +40,7 @@ const Register = () => {
         }, 4000);
         console.log(token);
       } catch (err) {
+        setError(true);
         console.log(err);
       }
     };
@@ -164,6 +159,11 @@ const Register = () => {
             Register
           </button>
         </div>
+        {error ? (
+          <p className="text-red-500 text-sm">
+            This username already exists. Please try again.
+          </p>
+        ) : null}
         {success ? (
           <p className="text-xs">
             <span className="font-bold text-cerise-500">SUCCESS!</span> You are

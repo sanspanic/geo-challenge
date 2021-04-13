@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import GameContext from "../../../Context/GameContext";
 import FlagLevel from "../FlagLevel/FlagLevel";
 import EndGame from "./EndGame";
@@ -14,6 +14,11 @@ const GameWrapper = () => {
   const startLevel = () => {
     setStatus({ isLost: false, isWon: false, isActive: true });
   };
+
+  //make sure new game starts when "game" is clicked, otherwise will display previous endgame state
+  useEffect(() => {
+    setStatus({ isLost: false, isWon: false, isActive: false });
+  }, []);
 
   return (
     <div className="bg-earth flex-grow flex place-items-center place-content-center">
