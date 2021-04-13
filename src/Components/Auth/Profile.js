@@ -29,11 +29,13 @@ const Profile = () => {
   const { user, setUser } = useContext(AuthContext);
   const { setRank, rank } = useContext(GameContext);
   const [imgSrc, setImgSrc] = useState("");
+  const [error, setError] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const tryUpdate = async () => {
       try {
+        setError(false);
         setIsLoading(true);
         const res = await backendAPI.updateUser(currUser.username, formData);
         console.log("RES:", res);
@@ -51,7 +53,9 @@ const Profile = () => {
           setIsLoading(false);
         }, 4000);
       } catch (err) {
+        setError(true);
         console.log(err);
+        setSuccess(false);
         setIsLoading(false);
       }
     };
@@ -249,6 +253,11 @@ const Profile = () => {
               )}
             </p>
           )}
+          {error ? (
+            <p className="text-xs text-center text-red-500">
+              Oops, something went wrong. Try again.{" "}
+            </p>
+          ) : null}
         </form>
       </div>
     </div>
