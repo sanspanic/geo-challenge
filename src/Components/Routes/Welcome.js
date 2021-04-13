@@ -12,7 +12,7 @@ const Welcome = () => {
     if (user.username) {
       history.push("/game");
     }
-  }, []);
+  }, [user.username, history]);
 
   return (
     <div className="flex-grow flex place-items-center place-content-center bg-earth">

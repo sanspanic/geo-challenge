@@ -5,7 +5,6 @@ import {
   pickWinner,
   isCorrect,
   gameLost,
-  gameWon,
   nextLevel,
 } from "../Common/helpers";
 import Timer from "../Common/Timer";
@@ -62,7 +61,7 @@ const CapitalLevel = () => {
       setSelection(selectionArr);
       setWinner(pickWinner(selectionArr));
     }
-  }, [turn, hasLoaded]);
+  }, [turn, hasLoaded, countries, setLevel, setStatus, status]);
 
   useEffect(() => {
     if (gameLost(mistakes)) {
@@ -70,7 +69,7 @@ const CapitalLevel = () => {
       clearInterval(timerId.current);
       setStatus({ ...status, isLost: true, isActive: false });
     }
-  }, [mistakes]);
+  }, [mistakes, setStatus, status]);
 
   const handleClick = (e) => {
     if (isCorrect(e.target.innerText, winner.capital)) {

@@ -19,8 +19,6 @@ const Map = () => {
   } = useContext(GameContext);
   const [hasRendered, setHasRendered] = useState(false);
   const [distance, setDistance] = useState(0);
-  const [correctLocation, setCorrectLocation] = useState([20, 20]);
-  const [selection, setSelection] = useState([]);
   const [winner, setWinner] = useState({
     name: "",
     flag: "",
@@ -66,16 +64,11 @@ const Map = () => {
       console.log("YA WON");
       setStatus({ ...status, isWon: true, isActive: false });
     }
-
     //select correct answer
     if (hasLoaded) {
       setWinner(pickOnlyOne(countries));
     }
-
-    //get new correctLocation
-    //setCorrectLocation([17, 48]);
-    //location.current = tt.LngLat.convert([17, 48]);
-  }, [turn, hasLoaded]);
+  }, [turn, hasLoaded, countries, setStatus, status]);
 
   useEffect(() => {
     if (winner.latlng.length > 0) {

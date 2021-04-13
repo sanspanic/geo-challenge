@@ -6,7 +6,7 @@ const GameContextProvider = ({ children }) => {
   const [speedBonus, setSpeedBonus] = useState(0);
   const [width, setWidth] = useState(100);
   const [level, setLevel] = useState(1);
-  const [score, setScore] = useState(101);
+  const [score, setScore] = useState(0);
   const [countries, setCountries] = useState([]);
   const [rank, setRank] = useState(1);
   const [hasLoaded, setHasLoaded] = useState(false);

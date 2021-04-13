@@ -7,7 +7,6 @@ import img6 from "../../Assets/Cartographer.jpg";
 import img5 from "../../Assets/compass.jpg";
 import img4 from "../../Assets/Ship.jpg";
 import img3 from "../../Assets/SatNav.jpg";
-import { Link } from "react-router-dom";
 import backendAPI from "../../API/backendAPI";
 import AuthContext from "../../Context/AuthContext";
 import GameContext from "../../Context/GameContext";
@@ -114,7 +113,7 @@ const Profile = () => {
         setImgSrc(img1);
       }
     }
-  }, [currUser]);
+  }, [currUser, setRank]);
 
   return (
     <div className="bg-earth flex-grow flex place-items-center place-content-center">
@@ -133,7 +132,7 @@ const Profile = () => {
               <span className="font-bold">{ranks[0][rank].name}</span>
             </p>
           </div>
-          <img className="w-4/12" src={imgSrc}></img>
+          <img alt="rank" className="w-4/12" src={imgSrc}></img>
         </div>
         <p className="px-4 sm:px-0 text-sm md:text-base mt-3 max-w-prose">
           {ranks[0][rank].description}

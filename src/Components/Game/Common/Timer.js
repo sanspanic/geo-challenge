@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { HeartStraight } from "phosphor-react";
 import GameContext from "../../../Context/GameContext";
 import { v4 as uuid } from "uuid";
@@ -16,7 +16,7 @@ const Timer = ({ setTurn, timerId }) => {
         return w - 1;
       });
     }, 50);
-  }, []);
+  }, [setWidth, timerId]);
 
   //handle timeOut
   useEffect(() => {
@@ -25,7 +25,7 @@ const Timer = ({ setTurn, timerId }) => {
       setTurn((t) => t + 1);
       setWidth(100);
     }
-  }, [width]);
+  }, [width, setMistakes, setTurn, setWidth]);
 
   return (
     <>

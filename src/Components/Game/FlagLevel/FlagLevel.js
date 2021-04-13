@@ -54,7 +54,7 @@ const FlagLevel = () => {
       setSelection(selectionArr);
       setWinner(pickWinner(selectionArr));
     }
-  }, [hasLoaded, turn]);
+  }, [hasLoaded, turn, countries, setLevel, setStatus, status]);
 
   useEffect(() => {
     if (gameLost(mistakes)) {
@@ -62,7 +62,7 @@ const FlagLevel = () => {
       setStatus({ ...status, isLost: true, isActive: false });
       clearInterval(timerId.current);
     }
-  }, [mistakes]);
+  }, [mistakes, setStatus, status]);
 
   const handleClick = (e) => {
     if (isCorrect(e.target.src, winner.flag)) {

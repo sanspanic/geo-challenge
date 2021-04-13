@@ -24,12 +24,14 @@ const EndGame = () => {
     speedBonus,
     rank,
     setRank,
+    status,
   } = useContext(GameContext);
   const [imgSrc, setImgSrc] = useState("");
   const [newHighScore, setNewHighScore] = useState(0);
 
   //update highscore
   useEffect(() => {
+    if (!status.active) return;
     const tryUpdateScore = async () => {
       try {
         const res = await backendAPI.updateHighscore(
@@ -45,7 +47,7 @@ const EndGame = () => {
       }
     };
     tryUpdateScore();
-  }, [score]);
+  }, [score, status]);
 
   useEffect(() => {
     const rankNum = calculateRank(score);
@@ -136,7 +138,7 @@ const EndGame = () => {
           Your Rank:
           <span className="text-cerise-500"> {ranks[0][rank].name}</span>
         </h2>
-        <img className="py-5" src={imgSrc}></img>
+        <img alt="rank" className="py-5" src={imgSrc}></img>
         <p className="max-w-sm">{ranks[0][rank].description}</p>
       </div>
     </div>

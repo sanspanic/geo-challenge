@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import GameContext from "../../../Context/GameContext";
 import FlagLevel from "../FlagLevel/FlagLevel";
 import EndGame from "./EndGame";
@@ -24,7 +24,7 @@ const GameWrapper = () => {
     setStatus({ isLost: false, isWon: false, isActive: false });
     setLevel(1);
     setWidth(100);
-  }, []);
+  }, [setStatus, setLevel, setWidth]);
 
   return (
     <div className="my-5 bg-earth flex-grow flex place-items-center place-content-center">

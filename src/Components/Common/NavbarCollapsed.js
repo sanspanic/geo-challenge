@@ -13,12 +13,12 @@ const NavbarCollapsed = ({ setIsMenuOpen }) => {
         <div className="flex items-center justify-between mb-4">
           <div>
             <Link
-              href="/"
+              to="/"
               aria-label="Geo Challenge"
               title="Geo Challenge"
               className="inline-flex items-center"
             >
-              <img width={30} src={Planet}></img>
+              <img alt="planet" width={30} src={Planet}></img>
               <span className="ml-5 text-xl font-bold tracking-wide text-gray-800 uppercase text-gradient-purple">
                 Geo Challenge
               </span>
@@ -46,7 +46,7 @@ const NavbarCollapsed = ({ setIsMenuOpen }) => {
               <>
                 <li>
                   <Link
-                    href="/game"
+                    to="/game"
                     aria-label="Product pricing"
                     title="Product pricing"
                     className="font-medium tracking-wide text-earthblue-400 transition-colors duration-200 hover:text-earthgreen-400"
@@ -71,24 +71,24 @@ const NavbarCollapsed = ({ setIsMenuOpen }) => {
             ) : (
               <>
                 <li>
-                  <a
-                    href="/register"
+                  <Link
+                    to="/register"
                     aria-label="Product pricing"
                     title="Product pricing"
                     className="font-medium tracking-wide text-earthblue-400 transition-colors duration-200 hover:text-earthgreen-400"
                   >
                     Register
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/login"
+                  <Link
+                    to="/login"
                     aria-label="About us"
                     title="About us"
                     className="font-medium tracking-wide text-earthblue-400 transition-colors duration-200 hover:text-earthgreen-400"
                   >
                     Login
-                  </a>
+                  </Link>
                 </li>
               </>
             )}
