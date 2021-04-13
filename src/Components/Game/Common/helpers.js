@@ -52,13 +52,12 @@ export const nextLevel = (turn) => {
   return turn % NUM_OF_TURNS === 0;
 };
 
-//must be arr to pass in as react child
 export const ranks = [
   {
     1: {
       description: `Geographically speaking, you are not the sharpest tool in the shed. At
     any given moment in time, you are likely to be lost and actively
-    searching for an exit door.`,
+    searching for an exit. Life is difficult.`,
       name: "Loser",
     },
     2: {

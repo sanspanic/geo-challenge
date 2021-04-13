@@ -1,15 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
 import GameContext from "../../../Context/GameContext";
 import { Link } from "react-router-dom";
-import Loser from "../../../Assets/loser.jpg";
-import LostInForest from "../../../Assets/LostInForest.jpg";
-import GoogleMaps from "../../../Assets/GoogleMaps.jpg";
-import Inventor from "../../../Assets/Inventor.jpg";
-import Cartographer from "../../../Assets/Cartographer.jpg";
-import Compass from "../../../Assets/compass.jpg";
-import Ship from "../../../Assets/Ship.jpg";
-import SatNav from "../../../Assets/SatNav.jpg";
-import { getPercentile, ranks } from "../Common/helpers";
+import img1 from "../../../Assets/loser.jpg";
+import img2 from "../../../Assets/LostInForest.jpg";
+import img8 from "../../../Assets/GoogleMaps.jpg";
+import img7 from "../../../Assets/Inventor.jpg";
+import img6 from "../../../Assets/Cartographer.jpg";
+import img5 from "../../../Assets/compass.jpg";
+import img4 from "../../../Assets/Ship.jpg";
+import img3 from "../../../Assets/SatNav.jpg";
+import { calculateRank, ranks } from "../Common/helpers";
 import { Trophy } from "phosphor-react";
 import backendAPI from "../../../API/backendAPI";
 
@@ -48,31 +48,24 @@ const EndGame = () => {
   }, [score]);
 
   useEffect(() => {
-    const percentile = getPercentile(score);
-    if (percentile > (100 / 8) * 7) {
-      setRank(8);
-      setImgSrc(GoogleMaps);
-    } else if ((100 / 8) * 7 >= percentile && percentile > (100 / 8) * 6) {
-      setRank(7);
-      setImgSrc(Inventor);
-    } else if ((100 / 8) * 6 >= percentile && percentile > (100 / 8) * 5) {
-      setRank(6);
-      setImgSrc(Cartographer);
-    } else if ((100 / 8) * 5 >= percentile && percentile > (100 / 8) * 4) {
-      setRank(5);
-      setImgSrc(Compass);
-    } else if ((100 / 8) * 4 >= percentile && percentile > (100 / 8) * 3) {
-      setRank(4);
-      setImgSrc(Ship);
-    } else if ((100 / 8) * 3 >= percentile && percentile > (100 / 8) * 2) {
-      setRank(3);
-      setImgSrc(SatNav);
-    } else if ((100 / 8) * 2 >= percentile && percentile > 100 / 8) {
-      setRank(2);
-      setImgSrc(LostInForest);
-    } else if (percentile <= 100 / 8) {
-      setRank(1);
-      setImgSrc(Loser);
+    const rankNum = calculateRank(score);
+    setRank(rankNum);
+    if (rankNum === 8) {
+      setImgSrc(img8);
+    } else if (rankNum === 7) {
+      setImgSrc(img7);
+    } else if (rankNum === 6) {
+      setImgSrc(img6);
+    } else if (rankNum === 5) {
+      setImgSrc(img5);
+    } else if (rankNum === 4) {
+      setImgSrc(img4);
+    } else if (rankNum === 3) {
+      setImgSrc(img3);
+    } else if (rankNum === 2) {
+      setImgSrc(img2);
+    } else if (rankNum === 1) {
+      setImgSrc(img1);
     }
   }, [score, setRank, setImgSrc]);
 
@@ -84,7 +77,7 @@ const EndGame = () => {
   };
 
   return (
-    <div className="grid grid-cols-2 gap-10">
+    <div className="grid sm:grid-cols-2 my-5 gap-10">
       <div className="rounded flex flex-col items-center bg-white bg-opacity-50 border p-10 max-w-screen-sm md:max-w-screen-md">
         <h2 className="font-black text-4xl">Game Over!</h2>
         <ul className="endgame my-10 w-full">

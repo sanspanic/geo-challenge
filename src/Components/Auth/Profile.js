@@ -1,4 +1,12 @@
 import React, { useContext, useState, useEffect } from "react";
+import img1 from "../../Assets/loser.jpg";
+import img2 from "../../Assets/LostInForest.jpg";
+import img8 from "../../Assets/GoogleMaps.jpg";
+import img7 from "../../Assets/Inventor.jpg";
+import img6 from "../../Assets/Cartographer.jpg";
+import img5 from "../../Assets/compass.jpg";
+import img4 from "../../Assets/Ship.jpg";
+import img3 from "../../Assets/SatNav.jpg";
 import { Link } from "react-router-dom";
 import backendAPI from "../../API/backendAPI";
 import AuthContext from "../../Context/AuthContext";
@@ -20,6 +28,7 @@ const Profile = () => {
   const [success, setSuccess] = useState(false);
   const { user, setUser } = useContext(AuthContext);
   const { setRank, rank } = useContext(GameContext);
+  const [imgSrc, setImgSrc] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -83,22 +92,47 @@ const Profile = () => {
       const currRank = calculateRank(currUser.highscore);
       console.log("currRank", currRank);
       setRank(currRank);
+      if (currRank === 8) {
+        setImgSrc(img8);
+      } else if (currRank === 7) {
+        setImgSrc(img7);
+      } else if (currRank === 6) {
+        setImgSrc(img6);
+      } else if (currRank === 5) {
+        setImgSrc(img5);
+      } else if (currRank === 4) {
+        setImgSrc(img4);
+      } else if (currRank === 3) {
+        setImgSrc(img3);
+      } else if (currRank === 2) {
+        setImgSrc(img2);
+      } else if (currRank === 1) {
+        setImgSrc(img1);
+      }
     }
   }, [currUser]);
 
   return (
     <div className="bg-earth flex-grow flex place-items-center place-content-center">
-      <div className="bg-white bg-opacity-50 rounded-xl shadow-xl sm:p-10 md:p-20 my-10 p-3">
-        <h1 className="font-bold text-cerise-500 text-4xl mb-10">
-          Hello, {user.username}!
-        </h1>
-        <p>
-          Your highscore is:{" "}
-          <span className="font-bold">{currUser.highscore}</span>
-        </p>
-        <p>
-          Your current rank is:{" "}
-          <span className="font-bold">{ranks[0][rank].name}</span>
+      <div className="bg-white bg-opacity-50 rounded-xl shadow-xl sm:p-10 md:p-20 my-10 p-3 sm:w-8/12">
+        <div className="flex justify-between">
+          <div className="text-sm px-4 sm:px-0 md:text-base">
+            <h1 className="font-bold text-cerise-500 text-4xl mb-10">
+              Hello, {user.username}!
+            </h1>
+            <p>
+              Your highscore is:{" "}
+              <span className="font-bold">{currUser.highscore}</span>
+            </p>
+            <p>
+              Your current rank is:{" "}
+              <span className="font-bold">{ranks[0][rank].name}</span>
+            </p>
+          </div>
+          <img className="w-4/12" src={imgSrc}></img>
+        </div>
+        <p className="px-4 sm:px-0 text-sm md:text-base mt-3 max-w-prose">
+          {ranks[0][rank].description}
         </p>
         <form
           className="my-10 bg-white  rounded shadow-xl p-10 mx-2 sm:mx-0 md:p-7"
