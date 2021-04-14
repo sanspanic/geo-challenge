@@ -49,16 +49,8 @@ const Map = () => {
       const marker = new tt.Marker({ draggable: true })
         .setLngLat(initialLocation)
         .addTo(map);
-      //const arr = [-0.12, 51.5];
-      //marker.setDraggable(true);
       marker.on("dragend", () => {
-        //location.current = tt.LngLat.convert(correctLocation);
-        console.log("dragged");
-        //console.log("correctLocation: ", correctLocation);
-        console.log("location.current: ", location.current);
-        console.log(marker.getLngLat().distanceTo(location.current));
         setDistance(marker.getLngLat().distanceTo(location.current));
-        console.log(marker.getLngLat());
       });
       setHasRendered(true);
     }
@@ -66,7 +58,6 @@ const Map = () => {
 
   useEffect(() => {
     if (nextLevel(turn)) {
-      console.log("YA WON");
       setTimeout(() => {
         playGameWon();
       }, 1000);
@@ -75,6 +66,7 @@ const Map = () => {
     //select correct answer
     if (hasLoaded) {
       setWinner(pickOnlyOne(countries));
+      setDistance(1000000);
     }
   }, [turn, hasLoaded, countries, setStatus, status, playGameWon]);
 
@@ -84,13 +76,10 @@ const Map = () => {
         winner.latlng[1],
         winner.latlng[0],
       ]);
-      console.log(location.current);
     }
   }, [winner]);
 
   const handleSubmit = () => {
-    console.log("distance in km: ", distance / 1000);
-    console.log("evaluation: ", evaluateMapGuess(distance / 1000));
     const result = evaluateMapGuess(distance / 1000);
     if (result > 0) {
       playCorrect();

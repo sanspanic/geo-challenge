@@ -12,7 +12,6 @@ const Timer = ({ setTurn, timerId }) => {
   useEffect(() => {
     timerId.current = setInterval(() => {
       setWidth((w) => {
-        console.log(w);
         return w - 1;
       });
     }, 50);

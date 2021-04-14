@@ -16,7 +16,6 @@ const Board = () => {
         const res = await backendAPI.getHighscores();
         setScores(res);
         setIsLoading(false);
-        console.log(res);
       } catch (err) {
         setIsLoading(false);
         console.log("err from leaderboard: ", err);

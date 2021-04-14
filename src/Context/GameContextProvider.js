@@ -28,7 +28,6 @@ const GameContextProvider = ({ children }) => {
         console.log(err);
       }
     };
-    console.log("getting country data from API");
     getCountryData();
   }, []);
 

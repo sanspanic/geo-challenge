@@ -6,9 +6,15 @@ import CapitalLevel from "../CapitalLevel/CapitalLevel";
 import MapLevel from "../MapsLevel/MapLevel";
 
 const GameWrapper = () => {
-  const { level, status, setStatus, setLevel, setWidth, setScore } = useContext(
-    GameContext
-  );
+  const {
+    level,
+    status,
+    setStatus,
+    setLevel,
+    setWidth,
+    setScore,
+    setMistakes,
+  } = useContext(GameContext);
   const LEVEL_TITLES = {
     1: "Guess the Flag",
     2: "Guess the Capital",
@@ -25,7 +31,8 @@ const GameWrapper = () => {
     setLevel(1);
     setWidth(100);
     setScore(0);
-  }, [setStatus, setLevel, setWidth, setScore]);
+    setMistakes(5);
+  }, [setStatus, setLevel, setWidth, setScore, setMistakes]);
 
   return (
     <div className="py-5 bg-earth flex-grow flex place-items-center place-content-center">

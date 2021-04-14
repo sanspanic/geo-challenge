@@ -38,7 +38,7 @@ const Footer = () => {
                 <LinkedinLogo size={24} />
               </a>
             </span>
-            <span className="font-mono text-center py-2 sm:ml-auto text-xs text-white">
+            <span className="font-mono text-center py-2 sm:ml-auto text-xs text-gradient-purple">
               Made by sansPanic. I write code and I write about code.
             </span>
           </div>

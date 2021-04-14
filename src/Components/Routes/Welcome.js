@@ -22,7 +22,7 @@ const Welcome = () => {
           Play level 1 & 2 as guest, or login to access all levels and compete
           for a place on the Leaderboard.
         </p>
-        <div className="text-center flex justify-center gap-3">
+        <div className="text-center flex justify-center">
           <Button text="login" gradient="purple" />
           <Button text="game" gradient="green" />
         </div>

@@ -39,7 +39,6 @@ const EndGame = () => {
           return;
         }
         const res = await backendAPI.updateHighscore(user.username, { score });
-        console.log(res);
         if (res.highscore) {
           setNewHighScore(res.highscore);
         }

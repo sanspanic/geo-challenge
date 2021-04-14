@@ -46,7 +46,6 @@ const FlagLevel = () => {
       setTimeout(() => {
         playLevelUp();
       }, 1000);
-      console.log("initiating next level");
       clearInterval(timerId.current);
       setLevel((l) => l + 1);
       setStatus({ ...status, isActive: false });
@@ -68,7 +67,6 @@ const FlagLevel = () => {
       setTimeout(() => {
         playGameOver();
       }, 1000);
-      console.log("YA LOST");
       setStatus({ ...status, isLost: true, isActive: false });
       clearInterval(timerId.current);
     }
@@ -96,26 +94,26 @@ const FlagLevel = () => {
       </h1>
       <div className="grid flags-grid grid-cols-8 gap-2 place-content-stretch place-items-stretch">
         <img
-          className="h-full w-40 mx-1 col-span-4 md:col-span-2 transform-gpu hover:scale-110 duration-500 cursor-pointer"
+          className=" w-40 mx-1 col-span-4 md:col-span-2 transform-gpu hover:scale-110 duration-500 cursor-pointer"
           onClick={handleClick}
           alt="flag"
           src={selection[0].flag}
         />
 
         <img
-          className="h-full w-40 mx-1 col-start-5 col-span-4 md:col-start-3 md:col-span-2 transform-gpu hover:scale-110 duration-500 cursor-pointer"
+          className=" w-40 mx-1 col-start-5 col-span-4 md:col-start-3 md:col-span-2 transform-gpu hover:scale-110 duration-500 cursor-pointer"
           onClick={handleClick}
           alt="flag"
           src={selection[1].flag}
         />
         <img
-          className="h-full w-40 mx-1 col-start-1 col-span-4 md:col-start-5 md:col-span-2  transform-gpu hover:scale-110 duration-500 cursor-pointer"
+          className=" w-40 mx-1 col-start-1 col-span-4 md:col-start-5 md:col-span-2  transform-gpu hover:scale-110 duration-500 cursor-pointer"
           onClick={handleClick}
           alt="flag"
           src={selection[2].flag}
         />
         <img
-          className="h-full w-40 mx-1 col-start-5 col-span-4 md:col-start-7 md:col-span-2  transform-gpu hover:scale-110 duration-500 cursor-pointer"
+          className=" w-40 mx-1 col-start-5 col-span-4 md:col-start-7 md:col-span-2  transform-gpu hover:scale-110 duration-500 cursor-pointer"
           onClick={handleClick}
           alt="flag"
           src={selection[3].flag}

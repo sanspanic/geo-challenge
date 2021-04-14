@@ -1,6 +1,6 @@
 const COUNTRIES_LEN = 249;
 const SELECTION_LEN = 4;
-const NUM_OF_TURNS = 10;
+const NUM_OF_TURNS = 3;
 const NUM_OF_LEVELS = 3;
 const MAX_ACCURACY_BONUS = 250;
 const CORRECT_GUESS_SCORE = 100;
@@ -10,8 +10,6 @@ export const MAX_SCORE =
   (NUM_OF_LEVELS - 1) * (NUM_OF_TURNS * (CORRECT_GUESS_SCORE + SPEED_BONUS)) +
   NUM_OF_TURNS * CORRECT_GUESS_SCORE +
   MAX_ACCURACY_BONUS;
-
-console.log(MAX_SCORE);
 
 const getRandInt = (len) => {
   return Math.floor(Math.random() * len);
@@ -34,9 +32,7 @@ export const makeUniqueSelection = () => {
       selectionIndeces.push(num);
     }
   }
-  console.log("selection:", selectionIndeces);
   finalSelection = selectionIndeces;
-  console.log("final", finalSelection);
   return finalSelection;
 };
 

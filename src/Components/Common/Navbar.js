@@ -20,7 +20,7 @@ const Navbar = () => {
           className="inline-flex items-center"
         >
           <img alt="planet" width="40" src={PlanetImage}></img>
-          <span className="text-gradient-purple ml-4 text-2xl font-bold tracking-wide text-gray-800 uppercase">
+          <span className="ml-4 text-2xl font-bold tracking-widest text-white uppercase">
             Geo Challenge
           </span>
         </Link>
