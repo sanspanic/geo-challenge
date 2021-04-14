@@ -1,6 +1,6 @@
 const COUNTRIES_LEN = 249;
 const SELECTION_LEN = 4;
-const NUM_OF_TURNS = 5;
+const NUM_OF_TURNS = 10;
 const NUM_OF_LEVELS = 3;
 const MAX_ACCURACY_BONUS = 250;
 const CORRECT_GUESS_SCORE = 100;
@@ -58,12 +58,8 @@ export const gameLost = (mistakes) => {
   return mistakes === 0;
 };
 
-export const gameWon = (turn) => {
-  return turn === NUM_OF_TURNS;
-};
-
 export const nextLevel = (turn) => {
-  return turn % NUM_OF_TURNS === 0;
+  return turn === NUM_OF_TURNS;
 };
 
 export const evaluateMapGuess = (distance) => {

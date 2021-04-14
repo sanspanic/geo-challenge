@@ -19,7 +19,7 @@ const CapitalLevel = () => {
 
   const [winner, setWinner] = useState({ name: "", flag: "", capital: "" });
   //each level will have 20 turns
-  const [turn, setTurn] = useState(1);
+  const [turn, setTurn] = useState(0);
   const timerId = useRef();
 
   const {
@@ -42,6 +42,11 @@ const CapitalLevel = () => {
     if (nextLevel(turn)) {
       console.log("initiating next level");
       clearInterval(timerId.current);
+      //make sure only logged in users get to further levels
+      if (!JSON.parse(localStorage.getItem("user"))) {
+        setStatus({ ...status, isActive: false, isWon: true });
+        return;
+      }
       setLevel((l) => l + 1);
       setStatus({ ...status, isActive: false });
     }

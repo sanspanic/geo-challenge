@@ -16,10 +16,11 @@ const Welcome = () => {
 
   return (
     <div className="flex-grow flex place-items-center place-content-center bg-earth">
-      <div className="bg-white bg-opacity-50 rounded-xl shadow-xl p-20 flex flex-col justify-content-center align-items-center">
+      <div className="bg-white bg-opacity-50 rounded-xl shadow-xl p-20 flex flex-col justify-content-center align-items-center w-6/12">
         <h1 className="font-black text-center text-4xl uppercase">Welcome</h1>
-        <p className="py-5">
-          Play level 1 as guest, or access all levels by logging in.
+        <p className="py-5 text-center">
+          Play level 1 & 2 as guest, or login to access all levels and compete
+          for a place on the Leaderboard.
         </p>
         <div className="text-center flex justify-center gap-3">
           <Button text="login" gradient="purple" />

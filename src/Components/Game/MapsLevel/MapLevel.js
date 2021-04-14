@@ -5,7 +5,12 @@ import "./Map.css";
 import GameContext from "../../../Context/GameContext";
 import { HeartStraight } from "phosphor-react";
 import { v4 as uuid } from "uuid";
-import { pickOnlyOne, evaluateMapGuess, gameWon } from "../Common/helpers";
+import {
+  pickOnlyOne,
+  evaluateMapGuess,
+  gameWon,
+  nextLevel,
+} from "../Common/helpers";
 
 const Map = () => {
   const {
@@ -60,7 +65,7 @@ const Map = () => {
   }, [hasRendered]);
 
   useEffect(() => {
-    if (gameWon(turn)) {
+    if (nextLevel(turn)) {
       console.log("YA WON");
       setStatus({ ...status, isWon: true, isActive: false });
     }

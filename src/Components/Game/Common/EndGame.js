@@ -31,13 +31,13 @@ const EndGame = () => {
 
   //update highscore
   useEffect(() => {
-    if (!status.active) return;
     const tryUpdateScore = async () => {
       try {
-        const res = await backendAPI.updateHighscore(
-          JSON.parse(localStorage.getItem("user")).username,
-          { score }
-        );
+        const user = JSON.parse(localStorage.getItem("user"));
+        if (!user || !status.isActive) {
+          return;
+        }
+        const res = await backendAPI.updateHighscore(user.username, { score });
         console.log(res);
         if (res.highscore) {
           setNewHighScore(res.highscore);
@@ -82,6 +82,12 @@ const EndGame = () => {
     <div className="grid sm:grid-cols-2 my-5 gap-10">
       <div className="rounded flex flex-col items-center bg-white bg-opacity-50 border p-10 max-w-screen-sm md:max-w-screen-md">
         <h2 className="font-black text-4xl">Game Over!</h2>
+        {!JSON.parse(localStorage.getItem("user")) ? (
+          <p className="text-sm mt-5">
+            Do you want to play all levels?{" "}
+            <Link className="italic underline">Register</Link>.
+          </p>
+        ) : null}
         <ul className="endgame my-10 w-full">
           <h3 className="text-center font-bold border-b border-black p-1">
             Final Tally

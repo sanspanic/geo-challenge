@@ -34,7 +34,7 @@ const FlagLevel = () => {
 
   const [winner, setWinner] = useState({ name: "", flag: "", capital: "" });
   //each level will have 20 turns
-  const [turn, setTurn] = useState(1);
+  const [turn, setTurn] = useState(0);
   const timerId = useRef();
 
   useEffect(() => {

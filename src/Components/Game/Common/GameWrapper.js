@@ -6,7 +6,7 @@ import CapitalLevel from "../CapitalLevel/CapitalLevel";
 import MapLevel from "../MapsLevel/MapLevel";
 
 const GameWrapper = () => {
-  const { level, status, setStatus, setLevel, setWidth } = useContext(
+  const { level, status, setStatus, setLevel, setWidth, setScore } = useContext(
     GameContext
   );
   const LEVEL_TITLES = {
@@ -22,8 +22,9 @@ const GameWrapper = () => {
   //make sure new game starts when "game" is clicked, otherwise will display previous endgame state
   useEffect(() => {
     setStatus({ isLost: false, isWon: false, isActive: false });
-    setLevel(3);
+    setLevel(1);
     setWidth(100);
+    setScore(0);
   }, [setStatus, setLevel, setWidth]);
 
   return (
