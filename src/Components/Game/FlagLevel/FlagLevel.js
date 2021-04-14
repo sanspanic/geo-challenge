@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import GameContext from "../../../Context/GameContext";
+import SoundContext from "../../../Context/SoundContext";
 import {
   makeUniqueSelection,
   pickWinner,
@@ -24,6 +25,9 @@ const FlagLevel = () => {
     speedBonus,
     setSpeedBonus,
   } = useContext(GameContext);
+  const { playCorrect, playWrong, playLevelUp, playGameOver } = useContext(
+    SoundContext
+  );
 
   const [selection, setSelection] = useState([
     { name: "", flag: "", capital: "" },
@@ -39,6 +43,9 @@ const FlagLevel = () => {
 
   useEffect(() => {
     if (nextLevel(turn)) {
+      setTimeout(() => {
+        playLevelUp();
+      }, 1000);
       console.log("initiating next level");
       clearInterval(timerId.current);
       setLevel((l) => l + 1);
@@ -54,23 +61,28 @@ const FlagLevel = () => {
       setSelection(selectionArr);
       setWinner(pickWinner(selectionArr));
     }
-  }, [hasLoaded, turn, countries, setLevel, setStatus, status]);
+  }, [hasLoaded, turn, countries, setLevel, setStatus, status, playLevelUp]);
 
   useEffect(() => {
     if (gameLost(mistakes)) {
+      setTimeout(() => {
+        playGameOver();
+      }, 1000);
       console.log("YA LOST");
       setStatus({ ...status, isLost: true, isActive: false });
       clearInterval(timerId.current);
     }
-  }, [mistakes, setStatus, status]);
+  }, [mistakes, setStatus, status, playGameOver]);
 
   const handleClick = (e) => {
     if (isCorrect(e.target.src, winner.flag)) {
       if (width >= 70) {
         setSpeedBonus(speedBonus + 50);
       }
+      playCorrect();
       setScore((s) => s + 100);
     } else {
+      playWrong();
       setMistakes((m) => m - 1);
     }
     setTurn((turn) => turn + 1);

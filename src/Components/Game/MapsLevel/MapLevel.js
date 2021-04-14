@@ -3,6 +3,7 @@ import tt from "@tomtom-international/web-sdk-maps";
 import { API_KEY } from "../../../API/tomtom";
 import "./Map.css";
 import GameContext from "../../../Context/GameContext";
+import SoundContext from "../../../Context/SoundContext";
 import { HeartStraight } from "phosphor-react";
 import { v4 as uuid } from "uuid";
 import {
@@ -22,6 +23,7 @@ const Map = () => {
     setStatus,
     status,
   } = useContext(GameContext);
+  const { playCorrect, playWrong, playGameWon } = useContext(SoundContext);
   const [hasRendered, setHasRendered] = useState(false);
   const [distance, setDistance] = useState(0);
   const [winner, setWinner] = useState({
@@ -31,7 +33,7 @@ const Map = () => {
     latlng: [],
   });
   //each level will have 20 turns
-  const [turn, setTurn] = useState(1);
+  const [turn, setTurn] = useState(0);
   const location = useRef();
 
   useEffect(() => {
@@ -67,6 +69,9 @@ const Map = () => {
   useEffect(() => {
     if (nextLevel(turn)) {
       console.log("YA WON");
+      setTimeout(() => {
+        playGameWon();
+      }, 1000);
       setStatus({ ...status, isWon: true, isActive: false });
     }
     //select correct answer
@@ -88,7 +93,13 @@ const Map = () => {
   const handleSubmit = () => {
     console.log("distance in km: ", distance / 1000);
     console.log("evaluation: ", evaluateMapGuess(distance / 1000));
-    setScore((s) => s + evaluateMapGuess(distance / 1000));
+    const result = evaluateMapGuess(distance / 1000);
+    if (result > 0) {
+      playCorrect();
+    } else {
+      playWrong();
+    }
+    setScore((s) => s + result);
     setTurn((t) => t + 1);
   };
 
@@ -111,7 +122,7 @@ const Map = () => {
         <div className="text-center">
           Score: <span className="text-xl font-bold">{score}</span>
         </div>
-        <div className="text-center">
+        {/*         <div className="text-center">
           {Array.from({ length: mistakes }).map((m) => (
             <HeartStraight
               key={uuid()}
@@ -119,7 +130,7 @@ const Map = () => {
               size={24}
             />
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );

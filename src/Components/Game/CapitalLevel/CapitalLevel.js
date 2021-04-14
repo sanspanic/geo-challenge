@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 import GameContext from "../../../Context/GameContext";
+import SoundContext from "../../../Context/SoundContext";
 import {
   makeUniqueSelection,
   pickWinner,
@@ -36,26 +37,32 @@ const CapitalLevel = () => {
     width,
     setLevel,
   } = useContext(GameContext);
+  const {
+    playCorrect,
+    playWrong,
+    playLevelUp,
+    playGameOver,
+    playGameWon,
+  } = useContext(SoundContext);
 
   useEffect(() => {
-    //uncomment if you add third level
     if (nextLevel(turn)) {
       console.log("initiating next level");
       clearInterval(timerId.current);
       //make sure only logged in users get to further levels
       if (!JSON.parse(localStorage.getItem("user"))) {
+        setTimeout(() => {
+          playGameWon();
+        }, 1000);
         setStatus({ ...status, isActive: false, isWon: true });
         return;
       }
+      setTimeout(() => {
+        playLevelUp();
+      }, 1000);
       setLevel((l) => l + 1);
       setStatus({ ...status, isActive: false });
     }
-
-    /*     if (gameWon(turn)) {
-      console.log("YA WON");
-      clearInterval(timerId.current);
-      setStatus({ ...status, isWon: true, isActive: false });
-    } */
 
     const indexArr = makeUniqueSelection();
     let selectionArr = [];
@@ -66,23 +73,38 @@ const CapitalLevel = () => {
       setSelection(selectionArr);
       setWinner(pickWinner(selectionArr));
     }
-  }, [turn, hasLoaded, countries, setLevel, setStatus, status]);
+  }, [
+    turn,
+    hasLoaded,
+    countries,
+    setLevel,
+    setStatus,
+    status,
+    playCorrect,
+    playLevelUp,
+    playGameWon,
+  ]);
 
   useEffect(() => {
     if (gameLost(mistakes)) {
+      setTimeout(() => {
+        playGameOver();
+      }, 1000);
       console.log("YA LOST");
       clearInterval(timerId.current);
       setStatus({ ...status, isLost: true, isActive: false });
     }
-  }, [mistakes, setStatus, status]);
+  }, [mistakes, setStatus, status, playGameOver]);
 
   const handleClick = (e) => {
     if (isCorrect(e.target.innerText, winner.capital)) {
       if (width >= 70) {
         setSpeedBonus(speedBonus + 50);
       }
+      playCorrect();
       setScore((s) => s + 100);
     } else {
+      playWrong();
       setMistakes((m) => m - 1);
     }
     setTurn((turn) => turn + 1);
