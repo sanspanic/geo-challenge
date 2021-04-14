@@ -31,7 +31,7 @@ const Board = () => {
 
   return (
     <div className="bg-earth flex-grow flex place-items-center place-content-center">
-      <div className="flex">
+      <div className="flex font-display">
         <div className="bg-white bg-opacity-50 rounded shadow-xl my-5 px-5 sm:px-20 py-10 ">
           <h1 className="text-xl sm:text-4xl font-black mb-10">
             Leaderboard 

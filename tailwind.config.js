@@ -3,6 +3,7 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      fontFamily: { display: ["Raleway"] },
       colors: {
         cerise: {
           50: "#fdfcfb",

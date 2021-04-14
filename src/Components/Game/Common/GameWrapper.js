@@ -39,10 +39,10 @@ const GameWrapper = () => {
       {status.isLost || status.isWon ? (
         <EndGame />
       ) : (
-        <div className="bg-white bg-opacity-50 shadow-xl rounded p-10 w-11/12 max-w-screen-sm md:max-w-screen-md flex flex-col items-center">
+        <div className="bg-white bg-opacity-50 shadow-xl rounded-xl p-10 w-11/12 max-w-screen-sm md:max-w-screen-md flex flex-col items-center">
           {!(status.isActive || status.isWon || status.isLost) && (
             <>
-              <h1 className="text-center font-black text-4xl col-start-2 col-span-6 mb-10">
+              <h1 className="text-center text-gradient-purple font-black text-4xl col-start-2 col-span-6 mb-10">
                 Level {level} - {LEVEL_TITLES[level]}
               </h1>
               <button

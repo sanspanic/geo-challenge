@@ -117,153 +117,161 @@ const Profile = () => {
 
   return (
     <div className="bg-earth flex-grow flex place-items-center place-content-center">
-      <div className="bg-white bg-opacity-50 rounded-xl shadow-xl sm:p-10 md:p-20 my-10 p-3 w-11/12 sm:w-8/12">
-        <h1 className="font-bold text-cerise-500 text-4xl mb-10 text-center">
-          Hello, {user.username}!
-        </h1>
-        <div className="sm:w-5/12 text-sm px-4 md:text-base mx-auto bg-gradient-pale px-2 py-2 sm:py-5 border-cerise-500 border-2 rounded mb-5">
-          <p>
-            Your highscore is:{" "}
-            <span className="font-bold">{currUser.highscore}</span>
-          </p>
-          <p>
-            Your current rank is:{" "}
-            <span className="font-bold">{ranks[0][rank].name}</span>
-          </p>
-        </div>
-        <hr className="border border-cerise-500 my-5" />
-        <div className="flex flex-col sm:flex-row justify-between items-center">
-          <img
-            alt="rank"
-            className="w-5/12 sm:w-4/12 border rounded-2xl"
-            src={imgSrc}
-          ></img>
-          <p className="ml-5 rounded text-sm md:text-base mt-5 sm:mt-2 max-w-prose">
-            {ranks[0][rank].description}
-          </p>
-        </div>
+      <div className="mesh font-display rounded-xl shadow-xl sm:p-10 md:p-20 my-10 p-3 w-11/12 sm:w-8/12">
+        <div className="normal-opacity">
+          <h1 className="font-black text-gradient-purple text-4xl mb-10 text-center">
+            Hello, {user.username}!
+          </h1>
+          <div className="shadow sm:w-5/12 text-sm px-4 md:text-base mx-auto bg-gradient-pale px-2 py-2 sm:py-5 border-cerise-500 border-2 rounded mb-5">
+            <p>
+              Your highscore is:{" "}
+              <span className="font-bold">{currUser.highscore}</span>
+            </p>
+            <p>
+              Your current rank is:{" "}
+              <span className="font-bold">{ranks[0][rank].name}</span>
+            </p>
+          </div>
+          <hr className="border border-cerise-500 my-5" />
+          <div className="flex flex-col sm:flex-row justify-between items-center">
+            <img
+              alt="rank"
+              className="w-5/12 sm:w-4/12 border rounded-2xl"
+              src={imgSrc}
+            ></img>
+            <p className="ml-5 sm:ml-10 rounded text-sm md:text-base mt-5 sm:mt-2 max-w-prose">
+              {ranks[0][rank].description}
+            </p>
+          </div>
 
-        <form
-          className="my-10 bg-white border rounded shadow p-10 mx-2 mx-auto md:p-7 md:w-6/12"
-          onSubmit={handleSubmit}
-        >
-          <h3 className="mb-4 text-xl font-black sm:text-center sm:mb-6 sm:text-2xl">
-            Update Details
-          </h3>
-          <div className="mb-1 sm:mb-2">
-            <label htmlFor="username" className="inline-block mb-1 font-medium">
-              Username
-            </label>
-            <input
-              placeholder={currUser.username}
-              required
-              type="text"
-              className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-              id="username"
-              name="username"
-              onChange={handleChange}
-              value={formData.username}
-            />
-          </div>
-          <div className="mb-1 sm:mb-2 grid grid-cols-2 gap-4">
-            <div>
+          <form
+            className="font-sans mt-20 bg-white border rounded shadow p-10 mx-2 mx-auto md:p-7 md:w-6/12"
+            onSubmit={handleSubmit}
+          >
+            <h3 className="mb-4 text-xl font-black sm:text-center sm:mb-6 sm:text-2xl">
+              Update Details
+            </h3>
+            <div className="mb-1 sm:mb-2">
               <label
-                htmlFor="firstName"
+                htmlFor="username"
                 className="inline-block mb-1 font-medium"
               >
-                First Name
+                Username
               </label>
               <input
-                placeholder={currUser.firstName}
+                placeholder={currUser.username}
                 required
-                type="firstName"
+                type="text"
                 className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-                id="firstName"
-                name="firstName"
+                id="username"
+                name="username"
                 onChange={handleChange}
-                value={formData.firstName}
+                value={formData.username}
               />
             </div>
-            <div>
+            <div className="mb-1 sm:mb-2 grid grid-cols-2 gap-4">
+              <div>
+                <label
+                  htmlFor="firstName"
+                  className="inline-block mb-1 font-medium"
+                >
+                  First Name
+                </label>
+                <input
+                  placeholder={currUser.firstName}
+                  required
+                  type="firstName"
+                  className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                  id="firstName"
+                  name="firstName"
+                  onChange={handleChange}
+                  value={formData.firstName}
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="lastName"
+                  className="inline-block mb-1 font-medium"
+                >
+                  Last Name
+                </label>
+                <input
+                  placeholder={currUser.lastName}
+                  required
+                  type="lastName"
+                  className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                  id="lastName"
+                  name="lastName"
+                  onChange={handleChange}
+                  value={formData.lastName}
+                />
+              </div>
+            </div>
+            <div className="mb-1 sm:mb-2">
+              <label htmlFor="email" className="inline-block mb-1 font-medium">
+                Email
+              </label>
+              <input
+                placeholder={currUser.email}
+                required
+                type="email"
+                className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                id="email"
+                name="email"
+                onChange={handleChange}
+                value={formData.email}
+              />
+            </div>
+            <div className="mb-1 sm:mb-2">
               <label
-                htmlFor="lastName"
+                htmlFor="password"
                 className="inline-block mb-1 font-medium"
               >
-                Last Name
+                Password
               </label>
               <input
-                placeholder={currUser.lastName}
+                placeholder="***********"
                 required
-                type="lastName"
+                type="password"
                 className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-                id="lastName"
-                name="lastName"
+                id="password"
+                name="password"
                 onChange={handleChange}
-                value={formData.lastName}
+                value={formData.password}
               />
             </div>
-          </div>
-          <div className="mb-1 sm:mb-2">
-            <label htmlFor="email" className="inline-block mb-1 font-medium">
-              Email
-            </label>
-            <input
-              placeholder={currUser.email}
-              required
-              type="email"
-              className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-              id="email"
-              name="email"
-              onChange={handleChange}
-              value={formData.email}
-            />
-          </div>
-          <div className="mb-1 sm:mb-2">
-            <label htmlFor="password" className="inline-block mb-1 font-medium">
-              Password
-            </label>
-            <input
-              placeholder="***********"
-              required
-              type="password"
-              className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-              id="password"
-              name="password"
-              onChange={handleChange}
-              value={formData.password}
-            />
-          </div>
-          <div className="mt-4 mb-8 sm:mb-8 text-center">
-            <button
-              type="submit"
-              className="px-4 py-2 bg-gradient-purple rounded
+            <div className="mt-4 mb-8 sm:mb-8 text-center">
+              <button
+                type="submit"
+                className="px-4 py-2 bg-gradient-purple rounded
             font-bold text-white transition duration-400 hover:text-black
             transform-gpu hover:scale-110"
-            >
-              {" "}
-              Update Details
-            </button>
-          </div>
-          {success ? (
-            <p className="text-xs">
-              <span className="font-bold text-cerise-500">SUCCESS!</span> Your
-              user details have been updated.
-            </p>
-          ) : (
-            <p className="text-xs text-center sm:text-sm text-gray-500">
-              {isLoading ? (
-                <RotatingGlobe className="mx-auto" size={20} />
-              ) : (
-                "Please enter your password to enact changes."
-              )}
-            </p>
-          )}
-          {error ? (
-            <p className="text-xs text-center text-red-500">
-              Oops, something went wrong. Try again.{" "}
-            </p>
-          ) : null}
-        </form>
+              >
+                {" "}
+                Update Details
+              </button>
+            </div>
+            {success ? (
+              <p className="text-xs">
+                <span className="font-bold text-cerise-500">SUCCESS!</span> Your
+                user details have been updated.
+              </p>
+            ) : (
+              <p className="text-xs text-center sm:text-sm text-gray-500">
+                {isLoading ? (
+                  <RotatingGlobe className="mx-auto" size={20} />
+                ) : (
+                  "Please enter your password to enact changes."
+                )}
+              </p>
+            )}
+            {error ? (
+              <p className="text-xs text-center text-red-500">
+                Oops, something went wrong. Try again.{" "}
+              </p>
+            ) : null}
+          </form>
+        </div>
       </div>
     </div>
   );

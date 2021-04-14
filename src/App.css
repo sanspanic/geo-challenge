@@ -3,6 +3,10 @@
   width: 100%;
 }
 
+.mesh {
+  background-image: url("/src/Assets/mesh.png");
+}
+
 .rank-card img {
   border-radius: 20%;
   width: 200px;
