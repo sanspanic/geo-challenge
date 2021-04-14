@@ -1,17 +1,24 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import PlanetImage from "../../Assets/planet.png";
 import Button from "./Button";
 import { Link } from "react-router-dom";
 import AuthContext from "../../Context/AuthContext";
+import GameContext from "../../Context/GameContext";
 import NavbarCollapsed from "./NavbarCollapsed";
 import LogoutField from "./LogoutField";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user } = useContext(AuthContext);
+  const { status } = useContext(GameContext);
+
+  let isHidden = null;
+  if (status.isActive) isHidden = "hidden";
 
   return (
-    <div className="bg-black border-b navbar px-4 py-5 sm:max-w-full md:max-w-full  md:px-24 lg:px-8">
+    <div
+      className={`${isHidden} bg-black border-b navbar px-4 py-5 sm:max-w-full md:max-w-full  md:px-24 lg:px-8`}
+    >
       <div className="relative flex items-center justify-between">
         <Link
           to="/"

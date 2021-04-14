@@ -10,6 +10,7 @@ const Timer = ({ setTurn, timerId }) => {
 
   //initiate interval to decrease width with time
   useEffect(() => {
+    clearInterval(timerId.current);
     timerId.current = setInterval(() => {
       setWidth((w) => {
         return w - 1;
