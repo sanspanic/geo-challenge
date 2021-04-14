@@ -64,9 +64,7 @@ const NavbarCollapsed = ({ setIsMenuOpen }) => {
                     Profile
                   </Link>
                 </li>
-                <li>
-                  <LogoutField />
-                </li>
+                <LogoutField />
               </>
             ) : (
               <>

@@ -16,7 +16,7 @@ const Welcome = () => {
 
   return (
     <div className="flex-grow flex place-items-center place-content-center bg-earth">
-      <div className="bg-white bg-opacity-50 rounded-xl shadow-xl p-20 flex flex-col justify-content-center align-items-center w-6/12">
+      <div className="bg-white bg-opacity-50 rounded-xl shadow-xl p-20 flex flex-col justify-content-center align-items-center w-11/12 sm:w-6/12">
         <h1 className="font-black text-center text-4xl uppercase">Welcome</h1>
         <p className="py-5 text-center">
           Play level 1 & 2 as guest, or login to access all levels and compete

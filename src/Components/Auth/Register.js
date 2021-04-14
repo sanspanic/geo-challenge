@@ -59,10 +59,10 @@ const Register = () => {
   return (
     <div className="flex-grow bg-earth flex items-center justify-center">
       <form
-        className="my-10 bg-white bg-opacity-50 rounded shadow-xl p-10 mx-2 sm:mx-0 md:p-7 sm:w-8/12 lg:w-4/12"
+        className="my-5 bg-white bg-opacity-50 rounded shadow-xl p-10 w-11/12 sm:mx-0 md:p-7 sm:w-8/12 lg:w-4/12"
         onSubmit={handleSubmit}
       >
-        <h3 className="mb-4 text-xl font-black sm:text-center sm:mb-6 sm:text-2xl">
+        <h3 className="text-center mb-4 text-xl font-black sm:text-center sm:mb-6 sm:text-2xl">
           Register to Access All Levels
         </h3>
         <div className="mb-1 sm:mb-2">

@@ -4,8 +4,6 @@ import { API_KEY } from "../../../API/tomtom";
 import "./Map.css";
 import GameContext from "../../../Context/GameContext";
 import SoundContext from "../../../Context/SoundContext";
-import { HeartStraight } from "phosphor-react";
-import { v4 as uuid } from "uuid";
 import {
   pickOnlyOne,
   evaluateMapGuess,
@@ -25,7 +23,7 @@ const Map = () => {
   } = useContext(GameContext);
   const { playCorrect, playWrong, playGameWon } = useContext(SoundContext);
   const [hasRendered, setHasRendered] = useState(false);
-  const [distance, setDistance] = useState(0);
+  const [distance, setDistance] = useState(1000000);
   const [winner, setWinner] = useState({
     name: "",
     flag: "",
@@ -78,7 +76,7 @@ const Map = () => {
     if (hasLoaded) {
       setWinner(pickOnlyOne(countries));
     }
-  }, [turn, hasLoaded, countries, setStatus, status]);
+  }, [turn, hasLoaded, countries, setStatus, status, playGameWon]);
 
   useEffect(() => {
     if (winner.latlng.length > 0) {
@@ -106,10 +104,10 @@ const Map = () => {
   return (
     <div className="">
       <div className="flex flex-col justify-center">
-        <h1 className="text-2xl font-black py-2">
+        <h1 className="text-center sm:text-start text-2xl font-black py-2">
           Find: Capital of {winner.name}
         </h1>
-        <div className=" border " id="map"></div>
+        <div className="border mx-auto" id="map"></div>
         <button
           className="mt-5 self-center bg-gradient-green px-4 py-2 rounded font-bold text-white transition duration-400 hover:text-black transform-gpu hover:scale-110"
           onClick={handleSubmit}
@@ -122,15 +120,6 @@ const Map = () => {
         <div className="text-center">
           Score: <span className="text-xl font-bold">{score}</span>
         </div>
-        {/*         <div className="text-center">
-          {Array.from({ length: mistakes }).map((m) => (
-            <HeartStraight
-              key={uuid()}
-              className="inline text-cerise-500 my-1"
-              size={24}
-            />
-          ))}
-        </div> */}
       </div>
     </div>
   );

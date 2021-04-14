@@ -117,28 +117,34 @@ const Profile = () => {
 
   return (
     <div className="bg-earth flex-grow flex place-items-center place-content-center">
-      <div className="bg-white bg-opacity-50 rounded-xl shadow-xl sm:p-10 md:p-20 my-10 p-3 sm:w-8/12">
-        <div className="flex justify-between">
-          <div className="text-sm px-4 sm:px-0 md:text-base">
-            <h1 className="font-bold text-cerise-500 text-4xl mb-10">
-              Hello, {user.username}!
-            </h1>
-            <p>
-              Your highscore is:{" "}
-              <span className="font-bold">{currUser.highscore}</span>
-            </p>
-            <p>
-              Your current rank is:{" "}
-              <span className="font-bold">{ranks[0][rank].name}</span>
-            </p>
-          </div>
-          <img alt="rank" className="w-4/12" src={imgSrc}></img>
+      <div className="bg-white bg-opacity-50 rounded-xl shadow-xl sm:p-10 md:p-20 my-10 p-3 w-11/12 sm:w-8/12">
+        <h1 className="font-bold text-cerise-500 text-4xl mb-10 text-center">
+          Hello, {user.username}!
+        </h1>
+        <div className="sm:w-5/12 text-sm px-4 md:text-base mx-auto bg-gradient-pale px-2 py-2 sm:py-5 border-cerise-500 border-2 rounded mb-5">
+          <p>
+            Your highscore is:{" "}
+            <span className="font-bold">{currUser.highscore}</span>
+          </p>
+          <p>
+            Your current rank is:{" "}
+            <span className="font-bold">{ranks[0][rank].name}</span>
+          </p>
         </div>
-        <p className="px-4 sm:px-0 text-sm md:text-base mt-3 max-w-prose">
-          {ranks[0][rank].description}
-        </p>
+        <hr className="border border-cerise-500 my-5" />
+        <div className="flex flex-col sm:flex-row justify-between items-center">
+          <img
+            alt="rank"
+            className="w-5/12 sm:w-4/12 border rounded-2xl"
+            src={imgSrc}
+          ></img>
+          <p className="ml-5 rounded text-sm md:text-base mt-5 sm:mt-2 max-w-prose">
+            {ranks[0][rank].description}
+          </p>
+        </div>
+
         <form
-          className="my-10 bg-white  rounded shadow-xl p-10 mx-2 sm:mx-0 md:p-7"
+          className="my-10 bg-white border rounded shadow p-10 mx-2 mx-auto md:p-7 md:w-6/12"
           onSubmit={handleSubmit}
         >
           <h3 className="mb-4 text-xl font-black sm:text-center sm:mb-6 sm:text-2xl">

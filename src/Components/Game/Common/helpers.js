@@ -1,6 +1,6 @@
 const COUNTRIES_LEN = 249;
 const SELECTION_LEN = 4;
-const NUM_OF_TURNS = 3;
+const NUM_OF_TURNS = 10;
 const NUM_OF_LEVELS = 3;
 const MAX_ACCURACY_BONUS = 250;
 const CORRECT_GUESS_SCORE = 100;

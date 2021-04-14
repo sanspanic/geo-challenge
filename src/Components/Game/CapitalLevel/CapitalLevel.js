@@ -118,25 +118,25 @@ const CapitalLevel = () => {
       </h1>
       <div className="grid capitals-grid grid-cols-8 gap-2 place-content-stretch place-items-stretch">
         <div
-          className="cap h-full w-40 mx-1 col-span-4 md:col-span-2 transform-gpu hover:scale-110 duration-500 cursor-pointer  p-3 text-center bg-gradient-green text-white font-bold rounded-2xl"
+          className="text-xs sm:text-base h-full w-24 sm:w-40 mx-1 col-span-4 md:col-span-2 transform-gpu hover:scale-110 duration-500 cursor-pointer  p-2 sm:p-3 text-center bg-gradient-green text-white font-bold rounded-2xl"
           onClick={handleClick}
         >
           {selection[0].capital}
         </div>
         <div
-          className="h-full w-40 mx-1 col-start-5 col-span-4 md:col-start-3 md:col-span-2 transform-gpu hover:scale-110 duration-500 cursor-pointer p-3 text-center bg-gradient-green text-white font-bold rounded-2xl"
+          className="text-xs sm:text-base h-full w-24 sm:w-40 mx-1 col-start-5 col-span-4 md:col-start-3 md:col-span-2 transform-gpu hover:scale-110 duration-500 cursor-pointer p-2 sm:p-3 text-center bg-gradient-green text-white font-bold rounded-2xl"
           onClick={handleClick}
         >
           {selection[1].capital}
         </div>
         <div
-          className="h-full w-40 mx-1 col-start-1 col-span-4 md:col-start-5 md:col-span-2  transform-gpu hover:scale-110 duration-500 cursor-pointer p-3 text-center bg-gradient-green text-white font-bold rounded-2xl"
+          className="text-xs sm:text-base h-full w-24 sm:w-40 mx-1 col-start-1 col-span-4 md:col-start-5 md:col-span-2  transform-gpu hover:scale-110 duration-500 cursor-pointer p-2 sm:p-3 text-center bg-gradient-green text-white font-bold rounded-2xl"
           onClick={handleClick}
         >
           {selection[2].capital}
         </div>
         <div
-          className="h-full w-40 mx-1 col-start-5 col-span-4 md:col-start-7 md:col-span-2  transform-gpu hover:scale-110 duration-500 cursor-pointer p-3 text-center bg-gradient-green text-white font-bold rounded-2xl"
+          className="text-xs sm:text-base h-full w-24 sm:w-40 mx-1 col-start-5 col-span-4 md:col-start-7 md:col-span-2  transform-gpu hover:scale-110 duration-500 cursor-pointer p-2 sm:p-3 text-center bg-gradient-green text-white font-bold rounded-2xl"
           onClick={handleClick}
         >
           {selection[3].capital}

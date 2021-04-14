@@ -25,6 +25,7 @@ const EndGame = () => {
     rank,
     setRank,
     status,
+    level,
   } = useContext(GameContext);
   const [imgSrc, setImgSrc] = useState("");
   const [newHighScore, setNewHighScore] = useState(0);
@@ -34,7 +35,7 @@ const EndGame = () => {
     const tryUpdateScore = async () => {
       try {
         const user = JSON.parse(localStorage.getItem("user"));
-        if (!user || !status.isActive) {
+        if (!user || level < 2) {
           return;
         }
         const res = await backendAPI.updateHighscore(user.username, { score });
@@ -47,7 +48,7 @@ const EndGame = () => {
       }
     };
     tryUpdateScore();
-  }, [score, status]);
+  }, [score, status, level]);
 
   useEffect(() => {
     const rankNum = calculateRank(score);
@@ -79,8 +80,8 @@ const EndGame = () => {
   };
 
   return (
-    <div className="grid sm:grid-cols-2 my-5 gap-10">
-      <div className="rounded flex flex-col items-center bg-white bg-opacity-50 border p-10 max-w-screen-sm md:max-w-screen-md">
+    <div className="grid sm:grid-cols-2 my-5 gap-10 w-11/12">
+      <div className="shadow-xl rounded flex flex-col items-center bg-white bg-opacity-50 border p-10 max-w-screen-sm md:max-w-screen-md">
         <h2 className="font-black text-4xl">Game Over!</h2>
         {!JSON.parse(localStorage.getItem("user")) ? (
           <p className="text-sm mt-5">
@@ -139,7 +140,7 @@ const EndGame = () => {
           Play again!
         </button>
       </div>
-      <div className="rank-card bg-white bg-opacity-50 border self-center p-10 rounded flex flex-col items-center self-stretch">
+      <div className="shadow-xl rank-card bg-white bg-opacity-50 border self-center p-10 rounded flex flex-col items-center self-stretch">
         <h2 className="text-4xl font-black text-center">
           Your Rank:
           <span className="text-cerise-500"> {ranks[0][rank].name}</span>
