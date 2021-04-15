@@ -75,7 +75,7 @@ const FlagLevel = () => {
   const handleClick = (e) => {
     if (isCorrect(e.target.src, winner.flag)) {
       if (width >= 70) {
-        setSpeedBonus(speedBonus + 50);
+        setSpeedBonus((b) => b + 50);
       }
       playCorrect();
       setScore((s) => s + 100);
