@@ -85,7 +85,10 @@ const EndGame = () => {
         {!JSON.parse(localStorage.getItem("user")) ? (
           <p className="text-sm mt-5">
             Do you want to play all levels?{" "}
-            <Link className="italic underline">Register</Link>.
+            <Link to="register" className="italic underline">
+              Register
+            </Link>
+            .
           </p>
         ) : null}
         <ul className="endgame my-10 w-full">
