@@ -100,7 +100,7 @@ const EndGame = () => {
             .
           </p>
         ) : null}
-        <ul className="endgame my-10 w-full">
+        <ul className="font-display endgame my-10 w-full">
           <h3 className="text-center font-bold border-b border-black p-1">
             Final Tally
           </h3>
