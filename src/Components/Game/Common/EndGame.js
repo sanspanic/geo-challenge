@@ -26,19 +26,26 @@ const EndGame = () => {
     setRank,
     status,
     level,
+    setSpeedBonus,
+    setFinalScore,
+    finalScore,
   } = useContext(GameContext);
   const [imgSrc, setImgSrc] = useState("");
   const [newHighScore, setNewHighScore] = useState(0);
 
-  //update highscore
+  //update finalScore and backend highscore
   useEffect(() => {
+    //make final score account for mistakes and speedbonus
+    setFinalScore(score + mistakes * 50 + speedBonus);
     const tryUpdateScore = async () => {
       try {
         const user = JSON.parse(localStorage.getItem("user"));
         if (!user || level < 2) {
           return;
         }
-        const res = await backendAPI.updateHighscore(user.username, { score });
+        const res = await backendAPI.updateHighscore(user.username, {
+          score: finalScore,
+        });
         if (res.highscore) {
           setNewHighScore(res.highscore);
         }
@@ -47,7 +54,7 @@ const EndGame = () => {
       }
     };
     tryUpdateScore();
-  }, [score, status, level]);
+  }, [score, status, level, setFinalScore, finalScore, mistakes, speedBonus]);
 
   useEffect(() => {
     const rankNum = calculateRank(score);
@@ -72,10 +79,12 @@ const EndGame = () => {
   }, [score, setRank, setImgSrc]);
 
   const restart = () => {
-    setLevel(1);
-    setStatus({ isActive: false, isWon: false, isLost: false });
+    setFinalScore(0);
     setScore(0);
     setMistakes(5);
+    setSpeedBonus(0);
+    setLevel(1);
+    setStatus({ isActive: false, isWon: false, isLost: false });
   };
 
   return (
@@ -96,6 +105,10 @@ const EndGame = () => {
             Final Tally
           </h3>
           <li className="flex justify-between px-3 py-1">
+            <span>Base score: </span>
+            <span>{finalScore - speedBonus - mistakes * 50}</span>
+          </li>
+          <li className="flex justify-between px-3 py-1">
             <span>Speed bonus: </span>
             <span>
               {speedBonus / 50} x 50 = {speedBonus}
@@ -108,8 +121,8 @@ const EndGame = () => {
             </span>
           </li>
           <li className="flex justify-between px-3 py-1">
-            <span>Final score: </span>
-            <span className="font-bold">{score}</span>
+            <span>Final score:</span>
+            <span className="font-bold">{finalScore}</span>
           </li>
           <li className="flex justify-between px-3 py-1 text-cerise-500 font-bold">
             Final rank: <span>{ranks[0][rank].name}</span>

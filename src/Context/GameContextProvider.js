@@ -11,6 +11,7 @@ const GameContextProvider = ({ children }) => {
   const [rank, setRank] = useState(1);
   const [hasLoaded, setHasLoaded] = useState(false);
   const [mistakes, setMistakes] = useState(5);
+  const [finalScore, setFinalScore] = useState(0);
 
   const [status, setStatus] = useState({
     isActive: false,
@@ -51,6 +52,8 @@ const GameContextProvider = ({ children }) => {
         setSpeedBonus,
         rank,
         setRank,
+        finalScore,
+        setFinalScore,
       }}
     >
       {children}

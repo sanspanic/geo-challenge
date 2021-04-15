@@ -14,6 +14,7 @@ const GameWrapper = () => {
     setWidth,
     setScore,
     setMistakes,
+    setSpeedBonus,
   } = useContext(GameContext);
   const LEVEL_TITLES = {
     1: "Guess the Flag",
@@ -27,12 +28,13 @@ const GameWrapper = () => {
 
   //make sure new game starts when "game" is clicked, otherwise will display previous endgame state
   useEffect(() => {
-    setStatus({ isLost: false, isWon: false, isActive: false });
-    setLevel(1);
     setWidth(100);
     setScore(0);
     setMistakes(5);
-  }, [setStatus, setLevel, setWidth, setScore, setMistakes]);
+    setSpeedBonus(0);
+    setLevel(1);
+    setStatus({ isLost: false, isWon: false, isActive: false });
+  }, [setStatus, setLevel, setWidth, setScore, setMistakes, setSpeedBonus]);
 
   return (
     <div className="py-5 bg-earth flex-grow flex place-items-center place-content-center">

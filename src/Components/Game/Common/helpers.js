@@ -1,6 +1,6 @@
 const COUNTRIES_LEN = 249;
 const SELECTION_LEN = 4;
-const NUM_OF_TURNS = 10;
+const NUM_OF_TURNS = 3;
 const NUM_OF_LEVELS = 3;
 const MAX_ACCURACY_BONUS = 250;
 const CORRECT_GUESS_SCORE = 100;
@@ -62,9 +62,9 @@ export const evaluateMapGuess = (distance) => {
   console.log(distance);
   if (900 < distance) {
     return 0;
-  } else if (800 < distance) {
+  } else if (1000 < distance) {
     return 10;
-  } else if (700 < distance) {
+  } else if (800 < distance) {
     return 20;
   } else if (600 < distance) {
     return 30;
@@ -76,9 +76,9 @@ export const evaluateMapGuess = (distance) => {
     return 60;
   } else if (200 < distance) {
     return 70;
-  } else if (100 < distance) {
+  } else if (150 < distance) {
     return 80;
-  } else if (50 < distance) {
+  } else if (100 < distance) {
     return 90;
   } else {
     return 100;
