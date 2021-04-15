@@ -18,9 +18,9 @@ const EndGame = () => {
     setStatus,
     score,
     setScore,
-    setMistakes,
+    setLives,
     setLevel,
-    mistakes,
+    lives,
     speedBonus,
     rank,
     setRank,
@@ -35,8 +35,8 @@ const EndGame = () => {
 
   //update finalScore and backend highscore
   useEffect(() => {
-    //make final score account for mistakes and speedbonus
-    setFinalScore(score + mistakes * 50 + speedBonus);
+    //make final score account for lives and speedbonus
+    setFinalScore(score + lives * 50 + speedBonus);
     const tryUpdateScore = async () => {
       try {
         const user = JSON.parse(localStorage.getItem("user"));
@@ -54,7 +54,7 @@ const EndGame = () => {
       }
     };
     tryUpdateScore();
-  }, [score, status, level, setFinalScore, finalScore, mistakes, speedBonus]);
+  }, [score, status, level, setFinalScore, finalScore, lives, speedBonus]);
 
   useEffect(() => {
     const rankNum = calculateRank(score);
@@ -81,7 +81,7 @@ const EndGame = () => {
   const restart = () => {
     setFinalScore(0);
     setScore(0);
-    setMistakes(5);
+    setLives(5);
     setSpeedBonus(0);
     setLevel(1);
     setStatus({ isActive: false, isWon: false, isLost: false });
@@ -106,7 +106,7 @@ const EndGame = () => {
           </h3>
           <li className="flex justify-between px-3 py-1">
             <span>Base score: </span>
-            <span>{finalScore - speedBonus - mistakes * 50}</span>
+            <span>{finalScore - speedBonus - lives * 50}</span>
           </li>
           <li className="flex justify-between px-3 py-1">
             <span>Speed bonus: </span>
@@ -117,7 +117,7 @@ const EndGame = () => {
           <li className="flex justify-between px-3 py-1">
             <span>Accuracy bonus: </span>
             <span>
-              {mistakes} x 50 = {mistakes * 50}
+              {lives} x 50 = {lives * 50}
             </span>
           </li>
           <li className="flex justify-between px-3 py-1">

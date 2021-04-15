@@ -10,7 +10,7 @@ const GameContextProvider = ({ children }) => {
   const [countries, setCountries] = useState([]);
   const [rank, setRank] = useState(1);
   const [hasLoaded, setHasLoaded] = useState(false);
-  const [mistakes, setMistakes] = useState(5);
+  const [lives, setLives] = useState(5);
   const [finalScore, setFinalScore] = useState(0);
 
   const [status, setStatus] = useState({
@@ -44,8 +44,8 @@ const GameContextProvider = ({ children }) => {
         hasLoaded,
         status,
         setStatus,
-        mistakes,
-        setMistakes,
+        lives,
+        setLives,
         width,
         setWidth,
         speedBonus,

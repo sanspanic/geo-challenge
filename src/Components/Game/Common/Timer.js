@@ -4,9 +4,7 @@ import GameContext from "../../../Context/GameContext";
 import { v4 as uuid } from "uuid";
 
 const Timer = ({ setTurn, timerId }) => {
-  const { setWidth, setMistakes, mistakes, width, score } = useContext(
-    GameContext
-  );
+  const { setWidth, setLives, lives, width, score } = useContext(GameContext);
 
   //initiate interval to decrease width with time
   useEffect(() => {
@@ -22,11 +20,11 @@ const Timer = ({ setTurn, timerId }) => {
   useEffect(() => {
     console.log("timer resetting");
     if (width === 0) {
-      setMistakes((m) => m - 1);
+      setLives((m) => m - 1);
       setTurn((t) => t + 1);
       setWidth(100);
     }
-  }, [width, setMistakes, setTurn, setWidth]);
+  }, [width, setLives, setTurn, setWidth]);
 
   return (
     <>
@@ -35,7 +33,7 @@ const Timer = ({ setTurn, timerId }) => {
           Score: <span className="text-xl font-bold">{score}</span>
         </div>
         <div className="text-center">
-          {Array.from({ length: mistakes }).map((m) => (
+          {Array.from({ length: lives }).map((m) => (
             <HeartStraight
               key={uuid()}
               className="inline text-cerise-500 my-1"

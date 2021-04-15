@@ -27,11 +27,10 @@ const CapitalLevel = () => {
     hasLoaded,
     countries,
     setScore,
-    setMistakes,
-    mistakes,
+    setLives,
+    lives,
     status,
     setStatus,
-    speedBonus,
     setSpeedBonus,
     setWidth,
     width,
@@ -85,14 +84,14 @@ const CapitalLevel = () => {
   ]);
 
   useEffect(() => {
-    if (gameLost(mistakes)) {
+    if (gameLost(lives)) {
       setTimeout(() => {
         playGameOver();
       }, 1000);
       clearInterval(timerId.current);
       setStatus({ ...status, isLost: true, isActive: false });
     }
-  }, [mistakes, setStatus, status, playGameOver]);
+  }, [lives, setStatus, status, playGameOver]);
 
   const handleClick = (e) => {
     if (isCorrect(e.target.innerText, winner.capital)) {
@@ -103,7 +102,7 @@ const CapitalLevel = () => {
       setScore((s) => s + 100);
     } else {
       playWrong();
-      setMistakes((m) => m - 1);
+      setLives((m) => m - 1);
     }
     setTurn((turn) => turn + 1);
     setWidth(100);

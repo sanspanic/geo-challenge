@@ -18,11 +18,10 @@ const FlagLevel = () => {
     status,
     setStatus,
     setLevel,
-    mistakes,
-    setMistakes,
+    lives,
+    setLives,
     setWidth,
     width,
-    speedBonus,
     setSpeedBonus,
   } = useContext(GameContext);
   const { playCorrect, playWrong, playLevelUp, playGameOver } = useContext(
@@ -37,11 +36,12 @@ const FlagLevel = () => {
   ]);
 
   const [winner, setWinner] = useState({ name: "", flag: "", capital: "" });
-  //each level will have 20 turns
+  //each level will have 10 turns
   const [turn, setTurn] = useState(0);
   const timerId = useRef();
 
   useEffect(() => {
+    //on new level
     if (nextLevel(turn)) {
       setTimeout(() => {
         playLevelUp();
@@ -51,6 +51,7 @@ const FlagLevel = () => {
       setStatus({ ...status, isActive: false });
     }
 
+    //on new turn
     const indexArr = makeUniqueSelection();
     let selectionArr = [];
     for (let idx of indexArr) {
@@ -63,14 +64,14 @@ const FlagLevel = () => {
   }, [hasLoaded, turn, countries, setLevel, setStatus, status, playLevelUp]);
 
   useEffect(() => {
-    if (gameLost(mistakes)) {
+    if (gameLost(lives)) {
       setTimeout(() => {
         playGameOver();
       }, 1000);
       setStatus({ ...status, isLost: true, isActive: false });
       clearInterval(timerId.current);
     }
-  }, [mistakes, setStatus, status, playGameOver]);
+  }, [lives, setStatus, status, playGameOver]);
 
   const handleClick = (e) => {
     if (isCorrect(e.target.src, winner.flag)) {
@@ -81,7 +82,7 @@ const FlagLevel = () => {
       setScore((s) => s + 100);
     } else {
       playWrong();
-      setMistakes((m) => m - 1);
+      setLives((m) => m - 1);
     }
     setTurn((turn) => turn + 1);
     setWidth(100);
