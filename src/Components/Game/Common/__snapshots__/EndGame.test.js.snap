@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="grid sm:grid-cols-2 my-5 gap-10 w-11/12"
+  >
+    <div
+      class=" shadow-xl rounded flex flex-col items-center bg-white bg-opacity-50 border p-10 max-w-screen-sm md:max-w-screen-md"
+    >
+      <h2
+        class="font-black text-4xl"
+      >
+        Game Over!
+      </h2>
+      <p
+        class="text-sm mt-5"
+      >
+        Do you want to play all levels? 
+        <a
+          class="italic underline"
+          href="/register"
+        >
+          Register
+        </a>
+        .
+      </p>
+      <ul
+        class="font-display endgame my-10 w-full"
+      >
+        <h3
+          class="text-center font-bold border-b border-black p-1"
+        >
+          Final Tally
+        </h3>
+        <li
+          class="flex justify-between px-3 py-1"
+        >
+          <span>
+            Base score: 
+          </span>
+          <span>
+            0
+          </span>
+        </li>
+        <li
+          class="flex justify-between px-3 py-1"
+        >
+          <span>
+            Speed bonus: 
+          </span>
+          <span>
+            0 x 50 = 0
+          </span>
+        </li>
+        <li
+          class="flex justify-between px-3 py-1"
+        >
+          <span>
+            Accuracy bonus: 
+          </span>
+          <span>
+            5 x 50 = 250
+          </span>
+        </li>
+        <li
+          class="flex justify-between px-3 py-1"
+        >
+          <span>
+            Final score:
+          </span>
+          <span
+            class="font-bold"
+          >
+            250
+          </span>
+        </li>
+        <li
+          class="flex justify-between px-3 py-1 text-cerise-500 font-bold"
+        >
+          Final rank: 
+          <span>
+            Loser
+          </span>
+        </li>
+        <li
+          class="flex justify-between px-3 py-1 font-bold"
+        >
+          Next rank: 
+          <span>
+            Lost in Forest
+          </span>
+        </li>
+      </ul>
+      <p
+        class="text-gray-600 pb-5"
+      >
+        Did you make it to the 
+        <a
+          class="underline italic text-black"
+          href="/leaderboard"
+        >
+          Leaderboard
+        </a>
+        ?
+      </p>
+      <button
+        class="px-4 py-2 bg-gradient-green rounded font-bold text-white transition duration-400 hover:text-black transform-gpu hover:scale-110"
+      >
+        Play again!
+      </button>
+    </div>
+    <div
+      class="mesh shadow-xl rank-card bg-white bg-opacity-50 border self-center p-10 rounded flex flex-col items-center self-stretch"
+    >
+      <h2
+        class="text-4xl font-black text-center"
+      >
+        Your Rank:
+        <span
+          class="text-cerise-500"
+        >
+           Loser
+        </span>
+      </h2>
+      <img
+        alt="rank"
+        class="py-5"
+        src="loser.jpg"
+      />
+      <p
+        class="max-w-sm font-display"
+      >
+        Geographically speaking, you are not the sharpest tool in the shed. At
+    any given moment in time, you are likely to be lost and actively
+    searching for an exit. Life is difficult.
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;

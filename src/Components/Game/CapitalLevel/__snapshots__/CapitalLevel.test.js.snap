@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <h1
+    class="text-center font-black text-4xl col-start-2 col-span-6 mb-10"
+  />
+  <div
+    class="grid capitals-grid grid-cols-8 gap-2 place-content-stretch place-items-stretch"
+  >
+    <div
+      class="text-xs sm:text-base w-24 sm:w-40 mx-1 col-span-4 md:col-span-2 transform-gpu hover:scale-110 duration-500 cursor-pointer  p-2 sm:p-3 text-center bg-gradient-green text-white font-bold rounded-2xl"
+    />
+    <div
+      class="text-xs sm:text-base w-24 sm:w-40 mx-1 col-start-5 col-span-4 md:col-start-3 md:col-span-2 transform-gpu hover:scale-110 duration-500 cursor-pointer p-2 sm:p-3 text-center bg-gradient-green text-white font-bold rounded-2xl"
+    />
+    <div
+      class="text-xs sm:text-base w-24 sm:w-40 mx-1 col-start-1 col-span-4 md:col-start-5 md:col-span-2  transform-gpu hover:scale-110 duration-500 cursor-pointer p-2 sm:p-3 text-center bg-gradient-green text-white font-bold rounded-2xl"
+    />
+    <div
+      class="text-xs sm:text-base w-24 sm:w-40 mx-1 col-start-5 col-span-4 md:col-start-7 md:col-span-2  transform-gpu hover:scale-110 duration-500 cursor-pointer p-2 sm:p-3 text-center bg-gradient-green text-white font-bold rounded-2xl"
+    />
+  </div>
+  <div
+    class="w-40 my-6 border-2 border-cerise-500 rounded-xl bg-gradient-pale p-2 bg-gradient-gray"
+  >
+    <div
+      class="text-center"
+    >
+      Score: 
+      <span
+        class="text-xl font-bold"
+      >
+        0
+      </span>
+    </div>
+    <div
+      class="text-center"
+    >
+      <svg
+        class="inline text-cerise-500 my-1"
+        fill="currentColor"
+        height="24"
+        viewBox="0 0 256 256"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          fill="none"
+          height="256"
+          width="256"
+        />
+        <path
+          d="M133.65683,211.88227l81.0323-81.0322c19.9104-19.91038,22.84784-52.666,4.00583-73.59029a52.0026,52.0026,0,0,0-75.46451-2.02934L127.99994,70.46082,114.85007,57.3109C94.93972,37.40047,62.18409,34.463,41.25979,53.305a52.00261,52.00261,0,0,0-2.02934,75.46452l83.11268,83.11272A8,8,0,0,0,133.65683,211.88227Z"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="16"
+        />
+      </svg>
+      <svg
+        class="inline text-cerise-500 my-1"
+        fill="currentColor"
+        height="24"
+        viewBox="0 0 256 256"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          fill="none"
+          height="256"
+          width="256"
+        />
+        <path
+          d="M133.65683,211.88227l81.0323-81.0322c19.9104-19.91038,22.84784-52.666,4.00583-73.59029a52.0026,52.0026,0,0,0-75.46451-2.02934L127.99994,70.46082,114.85007,57.3109C94.93972,37.40047,62.18409,34.463,41.25979,53.305a52.00261,52.00261,0,0,0-2.02934,75.46452l83.11268,83.11272A8,8,0,0,0,133.65683,211.88227Z"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="16"
+        />
+      </svg>
+      <svg
+        class="inline text-cerise-500 my-1"
+        fill="currentColor"
+        height="24"
+        viewBox="0 0 256 256"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          fill="none"
+          height="256"
+          width="256"
+        />
+        <path
+          d="M133.65683,211.88227l81.0323-81.0322c19.9104-19.91038,22.84784-52.666,4.00583-73.59029a52.0026,52.0026,0,0,0-75.46451-2.02934L127.99994,70.46082,114.85007,57.3109C94.93972,37.40047,62.18409,34.463,41.25979,53.305a52.00261,52.00261,0,0,0-2.02934,75.46452l83.11268,83.11272A8,8,0,0,0,133.65683,211.88227Z"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="16"
+        />
+      </svg>
+      <svg
+        class="inline text-cerise-500 my-1"
+        fill="currentColor"
+        height="24"
+        viewBox="0 0 256 256"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          fill="none"
+          height="256"
+          width="256"
+        />
+        <path
+          d="M133.65683,211.88227l81.0323-81.0322c19.9104-19.91038,22.84784-52.666,4.00583-73.59029a52.0026,52.0026,0,0,0-75.46451-2.02934L127.99994,70.46082,114.85007,57.3109C94.93972,37.40047,62.18409,34.463,41.25979,53.305a52.00261,52.00261,0,0,0-2.02934,75.46452l83.11268,83.11272A8,8,0,0,0,133.65683,211.88227Z"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="16"
+        />
+      </svg>
+      <svg
+        class="inline text-cerise-500 my-1"
+        fill="currentColor"
+        height="24"
+        viewBox="0 0 256 256"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          fill="none"
+          height="256"
+          width="256"
+        />
+        <path
+          d="M133.65683,211.88227l81.0323-81.0322c19.9104-19.91038,22.84784-52.666,4.00583-73.59029a52.0026,52.0026,0,0,0-75.46451-2.02934L127.99994,70.46082,114.85007,57.3109C94.93972,37.40047,62.18409,34.463,41.25979,53.305a52.00261,52.00261,0,0,0-2.02934,75.46452l83.11268,83.11272A8,8,0,0,0,133.65683,211.88227Z"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="16"
+        />
+      </svg>
+    </div>
+  </div>
+  <div
+    class="self-stretch col-start-1 col-span-8 border-2 border-black"
+  >
+    <div
+      class="bg-gradient-purple timer"
+      style="width: 100%;"
+    />
+  </div>
+</DocumentFragment>
+`;

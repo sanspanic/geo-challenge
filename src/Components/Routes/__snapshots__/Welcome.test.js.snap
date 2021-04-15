@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="flex-grow flex place-items-center place-content-center bg-earth"
+  >
+    <div
+      class="mesh rounded-xl shadow-xl p-20 flex flex-col justify-content-center align-items-center w-11/12 sm:w-6/12"
+    >
+      <h1
+        class="font-black text-center text-4xl uppercase"
+      >
+        Welcome
+      </h1>
+      <p
+        class="py-5 text-center font-display"
+      >
+        Play level 1 & 2 as guest, or login to access all levels and compete for a place on the Leaderboard.
+      </p>
+      <div
+        class="text-center flex justify-center gap-3"
+      >
+        <a
+          class="self-center"
+          href="/login"
+        >
+          <button
+            class="mx-2 px-4 py-2 bg-gradient-purple rounded font-bold text-white transition duration-400 hover:text-black transform-gpu hover:scale-110"
+          >
+            Login
+          </button>
+        </a>
+        <a
+          class="self-center"
+          href="/game"
+        >
+          <button
+            class="mx-2 px-4 py-2 bg-gradient-green rounded font-bold text-white transition duration-400 hover:text-black transform-gpu hover:scale-110"
+          >
+            Game
+          </button>
+        </a>
+      </div>
+      <p
+        class="text-sm text-gray-600 text-center pt-5"
+      >
+        No account yet? 
+        <a
+          class="underline italic"
+          href="/register"
+        >
+          Register
+        </a>
+        .
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;
