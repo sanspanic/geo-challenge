@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import Welcome from "./Welcome";
 import Board from "../Leaderboard/Board";
 import Login from "../Auth/Login";
@@ -28,6 +28,7 @@ const Routes = () => {
       <Route exact path="/profile">
         <Profile />
       </Route>
+      <Redirect to="/" />
     </Switch>
   );
 };

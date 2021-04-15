@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="null bg-black border-b navbar px-4 py-5 sm:max-w-full md:max-w-full  md:px-24 lg:px-8"
+  >
+    <div
+      class="relative flex items-center justify-between"
+    >
+      <a
+        aria-label="Logo"
+        class="inline-flex items-center"
+        href="/"
+        title="Logo"
+      >
+        <img
+          alt="planet"
+          src="planet.png"
+          width="40"
+        />
+        <span
+          class="ml-4 text-2xl font-bold tracking-widest text-white uppercase"
+        >
+          Geo Challenge
+        </span>
+      </a>
+      <ul
+        class="flex items-center hidden space-x-8 lg:flex"
+      >
+        <li>
+          <a
+            aria-label="Our product"
+            class="font-medium tracking-wide text-earthblue-400 transition-colors duration-200 hover:text-earthgreen-400"
+            href="/register"
+            title="Our product"
+          >
+            Register
+          </a>
+        </li>
+        <li>
+          <a
+            aria-label="Our product"
+            class="font-medium tracking-wide text-earthblue-400 transition-colors duration-200 hover:text-earthgreen-400"
+            href="/login"
+            title="Our product"
+          >
+            Login
+          </a>
+        </li>
+        <a
+          class="self-center"
+          href="/Leaderboard"
+        >
+          <button
+            class="mx-2 px-4 py-2 bg-gradient-purple rounded font-bold text-white transition duration-400 hover:text-black transform-gpu hover:scale-110"
+          >
+            Leaderboard
+          </button>
+        </a>
+      </ul>
+      <div
+        class="lg:hidden"
+      >
+        <button
+          aria-label="Open Menu"
+          class="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50"
+          title="Open Menu"
+        >
+          <svg
+            class="w-5 text-gray-600"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"
+              fill="currentColor"
+            />
+            <path
+              d="M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z"
+              fill="currentColor"
+            />
+            <path
+              d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

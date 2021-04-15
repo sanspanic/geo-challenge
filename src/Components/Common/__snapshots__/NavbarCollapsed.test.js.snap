@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="absolute top-0 left-0 w-full"
+  >
+    <div
+      class="p-5 bg-black  rounded shadow-sm"
+    >
+      <div
+        class="flex items-center justify-between mb-4"
+      >
+        <div>
+          <a
+            aria-label="Geo Challenge"
+            class="inline-flex items-center"
+            href="/"
+            title="Geo Challenge"
+          >
+            <img
+              alt="planet"
+              src="planet.png"
+              width="30"
+            />
+            <span
+              class="ml-5 text-xl font-bold tracking-wide text-gray-800 uppercase text-gradient-purple"
+            >
+              Geo Challenge
+            </span>
+          </a>
+        </div>
+        <div>
+          <button
+            aria-label="Close Menu"
+            class="p-2 -mt-2 -mr-2 transition duration-200 rounded hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+            title="Close Menu"
+          >
+            <svg
+              class="w-5 text-gray-600"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19.7,4.3c-0.4-0.4-1-0.4-1.4,0L12,10.6L5.7,4.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l6.3,6.3l-6.3,6.3 c-0.4,0.4-0.4,1,0,1.4C4.5,19.9,4.7,20,5,20s0.5-0.1,0.7-0.3l6.3-6.3l6.3,6.3c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3 c0.4-0.4,0.4-1,0-1.4L13.4,12l6.3-6.3C20.1,5.3,20.1,4.7,19.7,4.3z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <nav>
+        <ul
+          class="space-y-4"
+        >
+          <li>
+            <a
+              aria-label="Product pricing"
+              class="font-medium tracking-wide text-earthblue-400 transition-colors duration-200 hover:text-earthgreen-400"
+              href="/register"
+              title="Product pricing"
+            >
+              Register
+            </a>
+          </li>
+          <li>
+            <a
+              aria-label="About us"
+              class="font-medium tracking-wide text-earthblue-400 transition-colors duration-200 hover:text-earthgreen-400"
+              href="/login"
+              title="About us"
+            >
+              Login
+            </a>
+          </li>
+          <li>
+            <a
+              class="self-center"
+              href="/leaderboard"
+            >
+              <button
+                class="mx-2 px-4 py-2 bg-gradient-purple rounded font-bold text-white transition duration-400 hover:text-black transform-gpu hover:scale-110"
+              >
+                Leaderboard
+              </button>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</DocumentFragment>
+`;
