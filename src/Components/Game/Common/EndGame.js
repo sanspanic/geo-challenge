@@ -57,7 +57,7 @@ const EndGame = () => {
   }, [score, status, level, setFinalScore, finalScore, lives, speedBonus]);
 
   useEffect(() => {
-    const rankNum = calculateRank(score);
+    const rankNum = calculateRank(finalScore);
     setRank(rankNum);
     if (rankNum === 8) {
       setImgSrc(img8);
@@ -76,7 +76,7 @@ const EndGame = () => {
     } else if (rankNum === 1) {
       setImgSrc(img1);
     }
-  }, [score, setRank, setImgSrc]);
+  }, [finalScore, setRank, setImgSrc]);
 
   const restart = () => {
     setFinalScore(0);
