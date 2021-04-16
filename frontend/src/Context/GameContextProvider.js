@@ -15,7 +15,7 @@ const GameContextProvider = ({ children }) => {
 
   const [status, setStatus] = useState({
     isActive: false,
-    isLost: true,
+    isLost: false,
     isWon: false,
   });
 

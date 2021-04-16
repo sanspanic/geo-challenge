@@ -59,19 +59,19 @@ export const nextLevel = (turn) => {
 };
 
 export const evaluateMapGuess = (distance) => {
-  if (1200 < distance) {
+  if (550 < distance) {
     return 0;
-  } else if (1000 < distance) {
-    return 10;
-  } else if (800 < distance) {
-    return 20;
-  } else if (600 < distance) {
-    return 30;
   } else if (500 < distance) {
-    return 40;
+    return 10;
+  } else if (450 < distance) {
+    return 20;
   } else if (400 < distance) {
-    return 50;
+    return 30;
+  } else if (350 < distance) {
+    return 40;
   } else if (300 < distance) {
+    return 50;
+  } else if (250 < distance) {
     return 60;
   } else if (200 < distance) {
     return 70;
