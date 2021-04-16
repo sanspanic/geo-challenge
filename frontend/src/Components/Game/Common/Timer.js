@@ -19,7 +19,7 @@ const Timer = ({ setTurn, timerId }) => {
   //handle timeOut
   useEffect(() => {
     console.log("timer resetting");
-    if (width === 0) {
+    if (width <= 0) {
       setLives((m) => m - 1);
       setTurn((t) => t + 1);
       setWidth(100);
